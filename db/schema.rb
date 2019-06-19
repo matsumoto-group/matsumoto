@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_18_092155) do
+ActiveRecord::Schema.define(version: 2019_06_19_080825) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,6 +27,32 @@ ActiveRecord::Schema.define(version: 2019_06_18_092155) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "album_singers", force: :cascade do |t|
+    t.integer "album_id"
+    t.integer "singer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "album_songs", force: :cascade do |t|
+    t.integer "album_id"
+    t.integer "song_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "albums", force: :cascade do |t|
+    t.string "album_name"
+    t.string "jacket_image"
+    t.integer "price"
+    t.integer "stock_quantity"
+    t.string "sales_status"
+    t.string "genre"
+    t.string "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -52,6 +78,40 @@ ActiveRecord::Schema.define(version: 2019_06_18_092155) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "discs", force: :cascade do |t|
+    t.integer "album_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.datetime "purchase_date"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "first_name_kana"
+    t.string "last_name_kana"
+    t.string "payway"
+    t.integer "subtotal"
+    t.string "order_status"
+    t.string "postalcode"
+    t.string "order_adress"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "singers", force: :cascade do |t|
+    t.string "singer_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "song_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
