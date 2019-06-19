@@ -1,0 +1,2 @@
+class CartAlbum < ApplicationRecord
+end

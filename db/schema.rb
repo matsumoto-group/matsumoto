@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_080825) do
+
+ActiveRecord::Schema.define(version: 2019_06_19_080631) do
+
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -18,16 +20,12 @@ ActiveRecord::Schema.define(version: 2019_06_19_080825) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
+
 
   create_table "album_singers", force: :cascade do |t|
     t.integer "album_id"
@@ -51,34 +49,28 @@ ActiveRecord::Schema.define(version: 2019_06_19_080825) do
     t.string "sales_status"
     t.string "genre"
     t.string "label"
+
+  create_table "cart_albums", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "album_id"
+    t.integer "order_quantity"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "email"
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "first_name_kana"
-    t.string "last_name_kana"
-    t.string "postalcode"
-    t.string "adress"
-    t.string "phone"
-    t.boolean "deleted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
+
 
   create_table "discs", force: :cascade do |t|
     t.integer "album_id"
@@ -110,6 +102,16 @@ ActiveRecord::Schema.define(version: 2019_06_19_080825) do
 
   create_table "songs", force: :cascade do |t|
     t.string "song_title"
+
+  create_table "order_albums", force: :cascade do |t|
+    t.integer "order_id"
+    t.string "album_name"
+    t.string "jacket_image"
+    t.integer "price"
+    t.integer "stock_quanitity"
+    t.string "genre"
+    t.string "label"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
