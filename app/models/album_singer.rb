@@ -1,0 +1,2 @@
+class AlbumSinger < ApplicationRecord
+end
