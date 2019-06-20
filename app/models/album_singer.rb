@@ -1,6 +1,6 @@
 class AlbumSinger < ApplicationRecord
 
-  belongs_to :discs
-  belongs_to :singers
+  belongs_to :disc
+  belongs_to :singer
  
 end
