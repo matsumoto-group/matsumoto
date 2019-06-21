@@ -1,3 +1,56 @@
 // Place all the styles related to the Admins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// login 
+
+// login end
+
+.page{
+  width: 80%;
+  margin: 0 auto;  
+  text-align: center;
+}
+
+.page__title{
+  margin: 60px 0;  
+}
+
+.page__content{}
+
+  .form__row{
+    height: 40px;
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .form__label{
+    font-size: 20px;
+    width: 10%;
+    margin-right: 5%;
+    text-align: right;
+    line-height: 40px;
+  }
+
+  .form__field{
+    background-color: lightgray;
+    border-radius: 10px 10px 10px 10px;
+    border-style: none;
+    height: 40px;
+    width: 60%; 
+    padding: 0 15px;
+    font-size: 18px;
+  }
+    
+ .form__condition{
+    width: 23%;
+    margin: 0 0 0 2%;
+    color: dimgray;
+    font-size: 12px;
+    text-align: left;
+    line-height: 15px;
+  } 
+  
+ .page__bottom{
+   text-align: left;
+ }
