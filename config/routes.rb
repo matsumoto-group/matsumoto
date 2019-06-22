@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :admins do
+    get 'albums/index'
+    get 'albums/show'
+    get 'albums/edit'
+    get 'albums/new'
+  end
   devise_for :admins, :controllers => {
     :sessions =>'admins/sessions'
   }
