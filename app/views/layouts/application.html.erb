@@ -45,6 +45,9 @@
           <li class="header-nav__item">
               <%= link_to "お問い合わせ一覧", admins_contacts_path  %>  
           </li>
+          <li class="header-nav__item">
+              <%= link_to "ログアウト",  destroy_admin_session_path, :method => :delete  %>  
+          </li>
           <!--非ログイン時 -->
           <% else %>
           <li class="header-nav__item">
