@@ -12,54 +12,53 @@
 
   <body>
    <header class="header">
-      <h1 class="header__logo">
+      <h1 class="header__title">
         <%=link_to "松本商店", root_path %>
       </h1>
-      <nav class="header-nav">
-        <ul class="header-nav__menu">
+      <nav class="header__navs">
+        <ul class="header__nav">
         <!--エンドユーザーログイン時 -->
         <% if customer_signed_in? %>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%= link_to "ホーム", root_path %>  
           </li>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%= link_to "マイページ" , customer_path(current_customer.id)  %>  
           </li>
-          <li class="header-nav__item">
               <%= link_to "お問い合わせ", new_contact_path  %>  
           </li>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%= link_to "ログアウト" , destroy_customer_session_path, :method => :delete %>  
           </li>
           <!--管理者ログイン時 -->
           <% elsif admin_signed_in? %>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%= link_to "商品一覧", admins_albums_path  %>  
           </li>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%= link_to "ユーザー一覧" , admins_customers_path  %>  
           </li>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%= link_to "商品追加" , new_admins_album_path  %>  
           </li>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%= link_to "お問い合わせ一覧", admins_contacts_path  %>  
           </li>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%= link_to "ログアウト",  destroy_admin_session_path, :method => :delete  %>  
           </li>
           <!--非ログイン時 -->
           <% else %>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%=link_to "ホーム", root_path %>
           </li>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%= link_to "ログイン", new_customer_session_path  %>  
           </li>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%= link_to "新規登録", new_customer_registration_path  %>  
           </li>
-          <li class="header-nav__item">
+     	  <li class="header__item">
               <%= link_to "お問い合わせ", new_contact_path  %>  
           </li>
         <% end %>
