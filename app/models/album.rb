@@ -7,4 +7,6 @@ class Album < ApplicationRecord
   has_many :cart_albums, dependent: :destroy
   accepts_nested_attributes_for :singers , reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :discs , reject_if: :all_blank, allow_destroy: true
+  attachment :jacket_image
+  
 end

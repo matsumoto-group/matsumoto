@@ -2,7 +2,7 @@
 <div class="album__wrapper">
   <% @albums.each do |album| %>
   <div class="album__box">
-    <div class="album__img"></div>
+    <div class="album__img"><%= attachment_image_tag post_image, :jacket_image %></div>
     <div class="album__title"><%= album.album_name %></div>
     <div class="album__singer"><%= album.album_singer.singer.singer_name %></div>
   </div>
