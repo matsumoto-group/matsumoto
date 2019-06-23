@@ -16,6 +16,15 @@
   margin: 60px 0;  
 }
 
+.page__heading{
+  margin-bottom:1.5rem;
+  text-align: left;
+  background-color: #7E7B7B;
+  color:white;
+  padding-left:2rem;
+  height:2rem;
+}
+
 .page__content{}
 
   .form__row{
@@ -26,7 +35,7 @@
 
   .form__label{
     font-size: 20px;
-    width: 10%;
+    width: 15%;
     margin-right: 5%;
     text-align: right;
     line-height: 40px;
@@ -53,4 +62,8 @@
   
  .page__bottom{
    text-align: left;
+ }
+
+ .form__add {
+   margin-left:10rem;
  }

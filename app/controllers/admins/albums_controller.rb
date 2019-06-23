@@ -9,6 +9,9 @@ class Admins::AlbumsController < ApplicationController
 
   def new
     @post_album = Album.new
+    @disc = @post_album.discs.build
+    @song = @disc.songs.build
+    @singer = @post_album.singers.build
   end
 
   def create
@@ -19,7 +22,12 @@ class Admins::AlbumsController < ApplicationController
 
   private
   def album_params
-    params.require(:album).permit(:album_name, :jacket_image, :price, :stock_quantity, :sales_status, :genre, :label)
+    params.require(:album).permit(:album_name, :jacket_image, :price, :stock_quantity, :sales_status, :genre, :label,
+                                  singers_attributes: [:id, :singer_name, :_destroy],
+                                  discs_attributes: [:id, :_destroy,
+                                                    songs_attributes: [:id, :song_title, :_destroy]
+                                                    ]
+                                  )
   end
 
 
