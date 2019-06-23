@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get '/customer/:id' => 'customers#show', as: 'customer'
   namespace :admins do
     namespace :customers do
       get 'orders/destroy'
@@ -60,7 +61,7 @@ Rails.application.routes.draw do
       get :complete
     end
   end
-  resources :customers, only: [:edit, :show, :update]
+  resources :customers, only: [:edit, :update]
   
   
 end
