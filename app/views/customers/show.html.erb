@@ -1,0 +1,3 @@
+<%= render 'templates/customer_show_infos', customer:@customer %>
+<%= render 'templates/customer_show_cart', carts:@customer.cart_albums %>
+<p class="btn btn__login"><%= link_to '編集する', edit_customer_path(current_customer.id), class:"btn btn__link" %></p>
