@@ -1,0 +1,104 @@
+<%= form_for(@post_album) do |f| %>
+  <div class="form__row">
+    <p class="form__label">アルバム</p>
+    <%= f.text_field :album_name, autofocus: true,  class:"form__field" %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">ジャケット写真</p>
+    <%= f.attachment_field :jacket_image %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">レーベル</p>
+    <%= f.text_field :label, class:"form__field" %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">価格</p>
+    <%= f.number_field :price, class:"form__field" %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">在庫数</p>
+    <%= f.number_field :stock_quantity, class:"form__field" %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">ジャンル</p>
+    <%= f.text_field :genre, class:"form__field" %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">公開/非公開</p>
+    <%= f.text_field :sales_status, class:"form__field" %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+  
+  <h3 class="page__heading">含む曲</h3>
+    <%= f.fields_for :discs do |disc| %>
+    <%= render 'disc_fields', f: disc %>
+    <% end %>  
+    <div class="form__row">
+    <%= link_to_add_association 'CDを追加する', f, :discs %>
+    </div>
+
+
+
+  <h3 class="page__heading">含むアーティスト</h3>
+  <div class="form__row">
+    <%= f.fields_for :singers do |singer| %>
+    <%= render 'singer_fields', f: singer %>
+    <% end %>
+
+　</div>
+    <div class="form__row">
+        <%= link_to_add_association '➕', f, :singers , class:"form__add" %>
+    </div>
+
+  
+
+
+
+  
+
+  
+
+  <div class="actions">
+    <%= f.submit "追加", class:"btn btn__login" %>
+  </div>
+<% end %>
