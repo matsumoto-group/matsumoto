@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get '/customer/:id' => 'customers#show', as: 'customer'
+  get '/customers/:id' => 'customers#show', as: 'customer'
   namespace :admins do
     namespace :customers do
       get 'orders/destroy'
