@@ -13,3 +13,148 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";  /*ここを追加*/
+ @import "bootstrap";            /*ここを追加*/
+
+
+/* btn */
+ .btn{
+   height:40px;
+   width: 120px;
+   border-radius: 10px 10px 10px 10px;
+   border-style: none;
+   font-size: 15px;
+   box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.5);
+   text-align: center;
+ }
+
+ .btn:hover{
+   box-shadow: none;  
+ }
+
+ .btn__login, .btn__signup{
+     background-color: green;
+     color: white;
+ }
+
+ .btn__link{
+   color: white;
+   line-height: 2rem;
+   display: block;
+     
+ }
+
+/* common */
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+ html{
+   font-size: 20px;  
+ }
+
+ body{
+   width: 90%;
+   margin: 0 auto;  
+ }
+
+ a{
+   text-decoration: none;
+   color: black;  
+ }
+
+ ul, ol, li{
+   list-style: none;  
+ }
+
+/* header */
+
+.header {
+    background: white;
+    display: flex;
+    width: 100%;
+    height: 3rem;
+}
+
+  .header__title {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.5rem;
+      line-height: 3rem;
+  }
+  
+  .header__navs {
+      margin-left: 80px;
+  }
+
+  .header__nav { 
+      display: flex;
+      line-height: 3rem;
+  }
+
+  .header__item {
+      font-size: 0.9rem;;
+      margin-left: 2.5rem;
+  }
+
+  .header__item :hover {
+    color: rgba(0, 0, 0, 0.7);  
+  }
+
+  .header-nav__item a:visited,
+  .header__logo a:visited {
+    color: #000000;
+  }
+
+/* form */
+
+.page{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page__title{
+  margin: 60px 0;
+}
+
+.page__content{}
+
+.form__row{
+    height: 40px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.form__label{
+    font-size: 20px;
+    width: 20%;
+    margin-right: 5%;
+    text-align: right;
+    line-height: 40px;
+}
+
+.form__field{
+    background-color: lightgray;
+    border-radius: 10px 10px 10px 10px;
+    border-style: none;
+    height: 40px;
+    width: 60%;
+    padding: 0 15px;
+    font-size: 18px;
+}
+
+.form__condition{
+    width: 23%;
+    margin: 0 0 0 2%;
+    color: dimgray;
+    font-size: 12px;
+    text-align: left;
+    line-height: 15px;
+}
+
+.page__bottom{
+   text-align: left;
+}  

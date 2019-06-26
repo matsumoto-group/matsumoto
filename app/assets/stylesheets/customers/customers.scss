@@ -1,0 +1,33 @@
+// Place all the styles related to the customers/customers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// customer/show
+
+.customer__tabs{
+  display:flex;
+  margin-bottom: 4rem;  
+ }
+
+.customer__tab{
+   margin-right: 2rem;
+   border-bottom: 1px solid black; 
+ }
+
+ .customer__infos{}
+
+
+ .customer__info{
+   display: flex;  
+   height: 2rem;
+   line-height: 2rem;
+ }
+
+ .customer__info--label{
+   width: 8rem;
+   text-align: right;  
+ }
+
+ .customer__info--item{
+   margin-left: 2rem;  
+ }
