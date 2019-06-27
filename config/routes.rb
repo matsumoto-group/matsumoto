@@ -1,17 +1,6 @@
 Rails.application.routes.draw do
-  
-  get '/customers/:id' => 'customers#show', as: 'customer'
-  namespace :admins do
-    namespace :customers do
-      get 'orders/destroy'
-    end
-  end
-  namespace :admins do
-    get 'customers/index'
-    get 'customers/edit'
-    get 'customers/show'
-  end
-  devise_for :admins, :controllers => {
+
+ devise_for :admins, :controllers => {
     :sessions =>'admins/sessions'
   }
 
@@ -20,9 +9,22 @@ Rails.application.routes.draw do
     :sessions => 'customers/sessions'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
   root 'albums#index'
-  
+
+
+ get '/customers/:id' => 'customers#show', as: 'customer'
+  namespace :admins do
+    namespace :customers do
+      get 'orders/destroy'
+    end
+  end
+
+  namespace :admins do
+    get 'customers/index'
+    get 'customers/edit'
+    get 'customers/show'
+  end
+
   # 管理者
   namespace :admins do
     resources :albums do
@@ -62,6 +64,5 @@ Rails.application.routes.draw do
     end
   end
   resources :customers, only: [:edit, :update]
-  
-  
+
 end
