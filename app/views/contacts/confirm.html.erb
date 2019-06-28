@@ -1,1 +1,52 @@
-hello world
+<section class="page">
+<h2 class="page__title">お問い合わせ</h2>
+
+<%= form_for(@contact) do |f| %>
+
+  <div class="form__row">
+    <%= f.label :送信者名（漢字）, class:"form__label" %><br>
+    <%= f.text_field :name %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+      <p class="form__condition">*注意書きが入ります。</p>
+  </div>
+
+  <div class="form__row">
+    <%= f.label :送信者名（カナ）, class:"form__label" %><br>
+    <%= f.text_field :name_kana %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+      <p class="form__condition">*注意書きが入ります。</p>
+  </div>
+
+
+<div class="form__row">
+    <%= f.label :メールアドレス, class:"form__label" %><br>
+    <%= f.text_field :email %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+      <p class="form__condition">*注意書きが入ります。</p>
+  </div>
+
+
+<div class="form__row">
+    <%= f.label :件名, class:"form__label" %><br>
+    <%= f.text_field :title%>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+      <p class="form__condition">*注意書きが入ります。</p>
+  </div>
+
+  <div class="form__row">
+    <%= f.label :本文, class:"form__label" %><br>
+    <%= f.text_field :content%>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+      <p class="form__condition">*注意書きが入ります。</p>
+  </div>
+
+
+
+
+  <div class="actions">
+    <%= f.submit "送信", class:"btn btn__signup" %>
+  </div>
+
+<% end %>
+
+</section>

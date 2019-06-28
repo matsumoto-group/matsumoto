@@ -59,7 +59,7 @@ Rails.application.routes.draw do
   resources :albums, only: [:create, :update, :destroy]
   resources :contacts, only: [:new, :create] do
     collection do
-      get :confirm
+      post :confirm
       get :complete
     end
   end
