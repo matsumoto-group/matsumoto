@@ -3,7 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // customer/show
+// common
 
+.customer__content{
+   display: none;  
+ }
+
+ .is_active{
+   display: block !important;  
+ }
+
+ .is_selected{
+   color: #22B92E;
+   border-bottom: 1px solid #22B92E !important;
+ }
+
+// commmon end
 .customer__tabs{
   display:flex;
   margin-bottom: 4rem;  
@@ -12,6 +27,7 @@
 .customer__tab{
    margin-right: 2rem;
    border-bottom: 1px solid black; 
+   cursor: pointer;
  }
 
  .customer__infos{}
