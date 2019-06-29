@@ -7,6 +7,8 @@ class CustomersController < ApplicationController
 
   def edit
     @customer = Customer.find(params[:id])
+    @cart = Cartalbum.where(customer_id: @customer.id)
+
   end
 
   def update
@@ -21,6 +23,14 @@ class CustomersController < ApplicationController
     end
   end
 
+  def destroy
+    customer = Customer.find(params[:id])
+    if customer.destroy(customer_params)
+      redirect_to new_customer_registration_path 
+    else
+      flash[:error] = "Something went wrong"
+    end
+  end
 
   private
   def customer_params
