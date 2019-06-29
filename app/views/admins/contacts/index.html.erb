@@ -1,2 +1,17 @@
-<h1>Admins::Contacts#index</h1>
-<p>Find me in app/views/admins/contacts/index.html.erb</p>
+
+
+
+
+
+<% @contacts.each do |contact| %>
+	<table>
+		<tr>
+			<th><%= contact.name %></th>
+			<th><%= contact.name_kana %></th>
+			<th><%= contact.email %></th>
+			<th><%= contact.title %></th>
+			<th><%= contact.created_at %></th>
+			<th><%= link_to "詳細を見る", admins_contact_path(:id) %></th>
+		</tr>
+	</table>
+<% end %>
