@@ -1,6 +1,3 @@
-
-<h1>Admins::Albums#show</h1>
-<p>Find me in app/views/admins/albums/show.html.erb</p>
 <section class="page">
 <div class="album__img"><%= attachment_image_tag @album, :jacket_image , :fill,250,250  %></div>
 <div class="customer__wrapper">
@@ -10,9 +7,9 @@
     <div class="customer__tab">含むアーティスト</div>
     
   </div>
-    <%= render "album_infos" %>
-    <%= render "album_songs" %>
-    <%= render "album_singers" %>
+    <%= render "admins/albums/album_infos" %>
+    <%= render "admins/albums/album_songs" %>
+    <%= render "admins/albums/album_singers" %>
 
 </section>
-    <%= link_to "編集" , edit_admins_album_path(@album) %>
+    <%= link_to "カートに入れる" , edit_admins_album_path(@album) %>

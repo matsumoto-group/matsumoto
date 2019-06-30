@@ -1,19 +1,11 @@
-
-
 <div class="form__row">
   <%= f.label :discs, class:"form__label" %>
-  
   <%= link_to_remove_association "discを削除",  f %>
- 
 </div>
-
-<div class="form__row">
-<%= f.fields_for :songs do |song| %>
-<%= render 'song_fields', f: song %>
+  <%= f.fields_for :songs do |song| %>
+  <%= render 'song_fields', f: song %>
 <% end %>
-
-</div>
 <div class="form__row">
-    <%= link_to_add_association '➕', f, :songs , class:"form__add" %>
+  <%= link_to_add_association '➕', f, :songs , class:"form__add" %>
 </div>
 
