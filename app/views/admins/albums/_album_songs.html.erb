@@ -1,0 +1,13 @@
+<div id="cart" class="customer__carts customer__content">
+    
+    <% @album.discs.each do |disc| %>
+        <% disc.songs.each do |song| %>
+    <div class="customer__info">
+      <label class="customer__info--label"><% song.id %></label>
+      <p class="customer__info--item"><%= song.song_title %></p>
+    </div>
+        <% end %>
+    <% end %>
+  </div>
+
+   
