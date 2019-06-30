@@ -1,0 +1,10 @@
+<div id="order" class="customer__orders customer__content">
+    <% @album.singers.each do |singer| %>
+    <div class="customer__info">
+      <label class="customer__info--label"><% singer.id %></label>
+      <p class="customer__info--item"><%= singer.singer_name %></p>
+    </div>
+        
+    <% end %>
+
+<div>

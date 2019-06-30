@@ -1,7 +1,7 @@
 <%= form_for(@post_album) do |f| %>
   <div class="form__row">
     <p class="form__label">アルバム</p>
-    <%= f.text_field :album_name, autofocus: true,  class:"form__field" %>
+    <%= f.text_field :album_name, autofocus: true,  class:"form__field", value: "shota" %>
     <% if alert %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
@@ -21,7 +21,7 @@
 
   <div class="form__row">
     <p class="form__label">レーベル</p>
-    <%= f.text_field :label, class:"form__field" %>
+    <%= f.text_field :label, class:"form__field", value: "sony"%>
     <% if alert %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
@@ -31,7 +31,7 @@
 
   <div class="form__row">
     <p class="form__label">価格</p>
-    <%= f.number_field :price, class:"form__field" %>
+    <%= f.number_field :price, class:"form__field", value: "2500"  %>
     <% if alert %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
@@ -41,7 +41,7 @@
 
   <div class="form__row">
     <p class="form__label">在庫数</p>
-    <%= f.number_field :stock_quantity, class:"form__field" %>
+    <%= f.number_field :stock_quantity, class:"form__field", value: "25" %>
     <% if alert %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
@@ -51,7 +51,7 @@
 
   <div class="form__row">
     <p class="form__label">ジャンル</p>
-    <%= f.text_field :genre, class:"form__field" %>
+    <%= f.text_field :genre, class:"form__field", value: "Rock" %>
     <% if alert %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
@@ -61,7 +61,7 @@
 
   <div class="form__row">
     <p class="form__label">公開/非公開</p>
-    <%= f.text_field :sales_status, class:"form__field" %>
+    <%= f.text_field :sales_status, class:"form__field", value: "非公開" %>
     <% if alert %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
@@ -80,12 +80,13 @@
 
 
   <h3 class="page__heading">含むアーティスト</h3>
-  <div class="form__row">
+ 
     <%= f.fields_for :singers do |singer| %>
+   
     <%= render 'singer_fields', f: singer %>
     <% end %>
 
-　</div>
+
     <div class="form__row">
         <%= link_to_add_association '➕', f, :singers , class:"form__add" %>
     </div>
@@ -102,3 +103,7 @@
     <%= f.submit "追加", class:"btn btn__login" %>
   </div>
 <% end %>
+
+
+
+<%= link_to "確認", confirm_admins_albums_path  %>

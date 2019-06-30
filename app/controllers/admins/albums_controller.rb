@@ -1,23 +1,39 @@
 class Admins::AlbumsController < ApplicationController
   
+  def index
+    @albums = Album.all
+    
+  end
+  
   def show
+    @album = Album.find(params[:id])
+    @album_singers = @album.album_singers
+    
   end
-
-  def edit
-
-  end
-
+  
   def new
     @post_album = Album.new
     @disc = @post_album.discs.build
     @song = @disc.songs.build
     @singer = @post_album.singers.build
   end
+  
+  def edit
+    @album = Album.find(params[:id])
+  end
 
   def create
-    album = Album.new(album_params)
-    album.save
-    redirect_to root_path
+    
+  end
+  
+
+  def update
+  end
+
+  def destroy
+    @album = Album.find(params[:id])
+    @album.destroy
+    redirect_to admins_albums_url
   end
 
   private
