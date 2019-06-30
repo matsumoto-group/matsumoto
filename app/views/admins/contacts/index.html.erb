@@ -4,14 +4,15 @@
 
 
 <% @contacts.each do |contact| %>
-	<table>
+	<table class="contact_index">
 		<tr>
-			<th><%= contact.name %></th>
-			<th><%= contact.name_kana %></th>
-			<th><%= contact.email %></th>
-			<th><%= contact.title %></th>
-			<th><%= contact.created_at %></th>
-			<th><%= link_to "詳細を見る", admins_contact_path(:id) %></th>
+			<th class="contact_index2"><%= contact.name %></br>
+			<%= contact.name_kana %></br>
+			<%= contact.email %></br>
+			<%= contact.title %></th>
+
+			<th class="contact_index3"><%= contact.created_at %></br>
+			<%= link_to "詳細を見る", admins_contact_path(contact.id), class: "btn" %></th>
 		</tr>
 	</table>
 <% end %>

@@ -40,6 +40,8 @@
       <label class="customer__info--label">住所</label>
       <p class="customer__info--item"><%= @customer.adress %></p>
     </div>
+
+    <%= link_to "注文へ", new_customers_order_path %>
   </div><!-- cutomer__infos --> 
 
   <div id="cart" class="customer__carts">

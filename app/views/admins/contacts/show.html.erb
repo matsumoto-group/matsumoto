@@ -1,2 +1,40 @@
-<h1>Admins::Contacts#show</h1>
-<p>Find me in app/views/admins/contacts/show.html.erb</p>
+
+
+<section class="page">
+<h2 class="page__title">お問い合わせ詳細</h2>
+
+
+<div class="contact_show">
+
+  <div class="form__row">
+  	<p>名前（漢字）：</p>
+    <%= @contact.name %>
+  </div>
+
+  <div class="form__row">
+  	<p>名前（カナ）：</p>
+    <%= @contact.name_kana %>
+  </div>
+
+
+<div class="form__row">
+	<p>メールアドレス：</p>
+    <%= @contact.email %>
+ </div>
+
+
+<div class="form__row">
+	<p>タイトル：</p>
+    <%= @contact.title %>
+  </div>
+
+  <div class="form__row">
+  	<p>本文：</p>
+    <%= @contact.content %>
+  </div>
+
+</div>
+
+<%= link_to "削除", admins_contact_path(@contact.id), method: :delete, 'data-confirm' => "本当に削除しますか？", class: "btn" %>
+
+</section>

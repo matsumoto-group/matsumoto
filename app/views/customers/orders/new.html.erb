@@ -1,0 +1,36 @@
+<section class="page">
+<h2 class="page__title">商品購入</h2>
+
+<p>個人情報の入力</p>
+<%= form_for(@customer, :url => confirm_customers_orders_path) do |f| %>
+
+  <div class="form__row">
+    <%= f.label :名前（漢字）, class:"form__label" %><br>
+    <%= f.text_field :first_name %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+      <p class="form__condition">*注意書きが入ります。</p>
+  </div>
+
+  <div class="form__row">
+    <%= f.label :郵便番号）, class:"form__label" %><br>
+    <%= f.text_field :postalcode %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+      <p class="form__condition">*注意書きが入ります。</p>
+  </div>
+
+
+<div class="form__row">
+    <%= f.label :送付先, class:"form__label" %><br>
+    <%= f.text_field :adress %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+      <p class="form__condition">*注意書きが入ります。</p>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "確認", class:"btn btn__signup" %>
+  </div>
+
+<% end %>
+
+</section>
