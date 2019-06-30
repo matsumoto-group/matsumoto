@@ -93,4 +93,18 @@
     <!-- 変更ボタン -->
     <%= c.submit "変更完了", class:"btn btn__login" %>
   <% end %>
+
+  <% @cart.each do |cart| %>
+  <%= form_for(@cart) do |c| %>
+    <div class="customer__carts customer__content">
+      <div class="customer__cart">
+        <div class="customer__cart--item"><%= cart.id %></div>
+        <div class="customer__cart--item"><%= cart.album_name %></div>
+        <div class="customer__cart--item"><%= cart.label %></div>
+        <div class="customer__cart--item"><%= cart.price %></div>
+        <div class="customer__cart--item"><%= c.order_quantity %></div>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
 </section>
