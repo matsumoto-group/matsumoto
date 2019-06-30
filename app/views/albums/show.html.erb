@@ -12,4 +12,6 @@
     <%= render "admins/albums/album_singers" %>
 
 </section>
-    <%= link_to "カートに入れる" , edit_admins_album_path(@album) %>
+    
+    <p class="btn btn__login"><%= link_to "カートに入れる" , album_cart_albums_path(@album), class:"btn btn__link", method: :post %></p>
+   
