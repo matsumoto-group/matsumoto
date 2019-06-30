@@ -49,7 +49,9 @@ Rails.application.routes.draw do
 
 
   # エンドユーザー
-  resources :albums, only: [:show]
+  resources :albums, only: [:show] do
+    resources :cart_albums, only: [:create, :destroy] 
+  end
   resources :orders, only: [:destroy, :create] do
     collection do
       get :confirm
