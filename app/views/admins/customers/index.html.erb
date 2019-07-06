@@ -1,2 +1,33 @@
-<h1>Admins::Customers#index</h1>
-<p>Find me in app/views/admins/customers/index.html.erb</p>
+<section>
+
+	<h2 class="page__title">ユーザー一覧</h2>
+
+	<div>
+
+	<% @customers.each do |customer| %>
+
+	<div class="customer clearfix">
+
+		<div class="customer__left">
+			<p class="left"><%= "氏名: #{customer.last_name} #{customer.first_name}" %></p>
+			<p class="left"><%= "カナ: #{customer.last_name_kana} #{customer.first_name_kana}"%></p>
+			<p class="left"><%=  "メールアドレス: #{customer.email}"%></p>
+		</div>
+
+
+		<div class="customer__right">
+			<p class="left"><%= "郵便番号: #{customer.postalcode}" %></p>
+			<p class="left"><%= "住所: #{customer.adress}" %></p>
+			<p><%= "登録日: #{customer.created_at.strftime('%Y/%m/%d')}" %></p>
+			<p class="btn btn__login white"><%= link_to "詳細を見る", admins_customers_show_path(customer.id) %></p>
+		</div>
+	</div>
+
+	<% end %>
+
+	</div>
+</section>
+
+
+
+

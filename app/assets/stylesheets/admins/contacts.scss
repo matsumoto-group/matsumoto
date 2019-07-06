@@ -2,16 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.contact_index {
-	margin :3rem;
+
+.contact {
+	width: 50%;
+	margin: 30px auto 30px auto;
+	border-bottom: 3px solid silver;
+	position: relative;
 }
 
-.contact_index2 {
-	
+
+.contact__right {
+	position: absolute;
+	right: 0px;
+	top:0px;
 }
 
-
-.contact_show {
-	margin: 0 auto;
+.btn {
+	line-height: 40px;
 }
+
 

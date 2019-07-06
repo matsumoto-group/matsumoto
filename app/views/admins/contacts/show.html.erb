@@ -35,6 +35,8 @@
 
 </div>
 
-<%= link_to "削除", admins_contact_path(@contact.id), method: :delete, 'data-confirm' => "本当に削除しますか？", class: "btn" %>
+<div class="btn btn__login">
+  <%= link_to "削除", admins_contact_path(@contact.id), method: :delete, 'data-confirm' => "本当に削除しますか？" %>
+</div>
 
 </section>

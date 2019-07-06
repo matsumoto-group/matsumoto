@@ -70,4 +70,8 @@ Rails.application.routes.draw do
       resources :orders, only: [:destroy]
     end
 
+    namespace :admins do
+      resources :contacts, only: [:index, :show, :destroy]
+    end
+
 end
