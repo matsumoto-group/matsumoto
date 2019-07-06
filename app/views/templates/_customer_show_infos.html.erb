@@ -41,8 +41,10 @@
       <p class="customer__info--item"><%= @customer.adress %></p>
     </div>
 
-    <%= link_to "注文へ", new_customers_order_path %>
   </div><!-- cutomer__infos --> 
+
+  <%= link_to "注文", new_customers_order_path, class:"btn" %>
+
 
   <div id="cart" class="customer__carts customer__content">
     <% @cart.each do |cart| %>

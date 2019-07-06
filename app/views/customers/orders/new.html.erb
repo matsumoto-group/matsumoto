@@ -1,19 +1,27 @@
 <section class="page">
 <h2 class="page__title">商品購入</h2>
+<div class="page__content">
 
 <p>個人情報の入力</p>
-<%= form_for(@customer, :url => confirm_customers_orders_path) do |f| %>
+<%= form_for(@order, :url => confirm_customers_orders_path) do |f| %>
+
+  <div class="form__row">
+    <%= f.label :苗字（漢字）, class:"form__label" %><br>
+    <%= f.text_field :last_name, value:@customer.last_name, class:"form__field" %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+      <p class="form__condition">*注意書きが入ります。</p>
+  </div>
 
   <div class="form__row">
     <%= f.label :名前（漢字）, class:"form__label" %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, value:@customer.first_name, class:"form__field" %>
       <p class="form__alert alert alert-error"><%= alert %></p>
       <p class="form__condition">*注意書きが入ります。</p>
   </div>
 
   <div class="form__row">
     <%= f.label :郵便番号）, class:"form__label" %><br>
-    <%= f.text_field :postalcode %>
+    <%= f.text_field :postalcode, value:@customer.postalcode, class:"form__field" %>
       <p class="form__alert alert alert-error"><%= alert %></p>
       <p class="form__condition">*注意書きが入ります。</p>
   </div>
@@ -21,10 +29,10 @@
 
 <div class="form__row">
     <%= f.label :送付先, class:"form__label" %><br>
-    <%= f.text_field :adress %>
+    <%= f.text_field :order_adress, value:@customer.adress, class:"form__field" %>
       <p class="form__alert alert alert-error"><%= alert %></p>
       <p class="form__condition">*注意書きが入ります。</p>
-  </div>
+</div>
 
 
   <div class="actions">
@@ -33,4 +41,5 @@
 
 <% end %>
 
+</div>
 </section>
