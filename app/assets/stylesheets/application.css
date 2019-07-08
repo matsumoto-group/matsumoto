@@ -19,8 +19,8 @@
 
 /* btn */
  .btn{
-   height:40px;
-   width: 120px;
+   height: 2rem;
+   width: 6rem;
    border-radius: 10px 10px 10px 10px;
    border-style: none;
    font-size: 15px;
@@ -40,8 +40,14 @@
  .btn__link{
    color: white;
    line-height: 2rem;
-   display: block;
-     
+   display: inline-block;
+ }
+
+ .btn__delete{
+   color:white;
+   line-height: 2rem;
+   display: inline-block;
+   background-color: red;
  }
 
 /* common */
@@ -108,7 +114,7 @@
     color: #000000;
   }
 
-/* form */
+/* page */
 
 .page{
   width: 80%;
@@ -121,6 +127,12 @@
 }
 
 .page__content{}
+
+.page__bottom{
+   text-align: left;
+}  
+
+/* form */
 
 .form__row{
     height: 40px;
@@ -155,6 +167,7 @@
     line-height: 15px;
 }
 
-.page__bottom{
-   text-align: left;
-}  
+.form__alert{
+  color: red;  
+}
+
