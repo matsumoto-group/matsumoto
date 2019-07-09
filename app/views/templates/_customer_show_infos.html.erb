@@ -46,10 +46,10 @@
     <% @cart.each do |cart| %>
     <div class="customer__cart">
       <p class="customer__cart--item">1<%= cart.id %></p>
-      <p class="customer__cart--item">テスト名<%= cart.album_name %></p>
-      <p class="customer__cart--item">テストレーベル<%= cart.label %></p>
-      <p class="customer__cart--item">テスト価格<%= cart.price %></p>
-      <p class="customer__cart--item">テスト数量<%= cart.order_quantity %></p>
+      <p class="customer__cart--item">テスト名<%= cart.album.album_name %></p>
+      <p class="customer__cart--item">テストレーベル<%= cart.album.label %></p>
+      <p class="customer__cart--item">テスト価格<%= cart.album.price %></p>
+      
     </div>
     <% end %>
   </div><!-- customer__carts -->
