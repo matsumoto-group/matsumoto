@@ -40,7 +40,11 @@
       <label class="customer__info--label">住所</label>
       <p class="customer__info--item"><%= @customer.adress %></p>
     </div>
+
   </div><!-- cutomer__infos --> 
+
+  <%= link_to "注文", new_customers_order_path, class:"btn" %>
+
 
   <div id="cart" class="customer__carts customer__content">
     <% @cart.each do |cart| %>
