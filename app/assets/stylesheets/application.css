@@ -29,7 +29,7 @@
  }
 
  .btn:hover{
-   box-shadow: none;  
+   box-shadow: none;
  }
 
  .btn__login, .btn__signup{
@@ -70,7 +70,6 @@
    color: white;
    line-height: 2rem;
    display: block;
-     
  }
 
 /* common */
@@ -92,7 +91,7 @@
 
  a{
    text-decoration: none;
-   color: black;  
+   color: black;
  }
 
  ul, ol, li{
@@ -188,15 +187,11 @@
    text-align: left;
 }  
 
-.page__search{
-   text-align: left;
-}
 
-.page__pagination{
-  margin: 1rem;
-}
 
-.page__album{
-  width: auto;
-  height: 65rem;
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+
 }
