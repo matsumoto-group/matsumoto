@@ -1,8 +1,11 @@
 class Admins::AlbumsController < ApplicationController
   
   def index
-    @albums = Album.all
-    
+    @albums = if params[:search]
+      Album.page(params[:page]).reverse_order.search(params[:search])
+      else 
+        Album.page(params[:page]).reverse_order
+      end
   end
   
   def show
@@ -17,17 +20,34 @@ class Admins::AlbumsController < ApplicationController
     @song = @disc.songs.build
     @singer = @post_album.singers.build
   end
+
   
   def edit
     @album = Album.find(params[:id])
+    @disc = @album.discs.build
+    @song = @disc.songs.build
+    @singer = @album.singers.build
   end
 
   def create
-    
-  end
+    @album = Album.new(album_params)
+    if @album.save
+       redirect_to root_path
+    else 
+       render :new
+    end
+  
+end
+
   
 
   def update
+    @album = Album.find(params[:id])
+    if @album.update(params[:id])
+    redirect_to root_path
+    else
+      render "edit"   
+    end
   end
 
   def destroy

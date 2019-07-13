@@ -1,5 +1,131 @@
 <section class="page">
-hello world
+<h2 class="page__title">新規商品追加</h2>
+<h3 class="page__heading">商品情報</h3>
+<div class="page__content">
+<%= form_for(@post_album) do |f| %>
+  <div class="form__row">
+    <p class="form__label">アルバム</p>
+    <%= @post_album.album_name %>
+    <%= f.hidden_field :album_name %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">ジャケット写真</p>
+    <%= @post_album.jacket_image %>
+    <%= f.hidden_field :jacket_image %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">レーベル</p>
+    <%= @post_album.label %>
+<%= f.hidden_field :label %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">価格</p>
+    <%= @post_album.price %>
+    <%= f.hidden_field :price %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">在庫数</p>
+    <%= @post_album.stock_quantity %>
+    <%= f.hidden_field :stock_quantity %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">ジャンル</p>
+    <%= @post_album.genre %>
+    <%= f.hidden_field :genre %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+
+  <div class="form__row">
+    <p class="form__label">公開/非公開</p>
+    <%= @post_album.sales_status %>
+    <%= f.hidden_field :sales_status %>
+    <% if alert %>
+      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% else %>
+      <p class="form__condition">*注意書きが入ります。</p>
+    <% end %>
+  </div>
+  
+  <% @post_album.discs.each.with_index(1) do |disc, i| %>
+    <p>DISC<%= i %></p>
+    <div class="form__row">
+        <% disc.songs.each.with_index(1) do |song, i| %>
+    <div class="customer__info">
+      <p class="form__label"><%= i %></p>
+      <p class="customer__info--item"><%= song.song_title %></p>
+      <% f.fields_for :discs do  |disc| %>
+      <% disc.fields_for :songs do |song| %>
+      <%= song.hidden_field :song_title %>
+      <% end %>
+      <% end %>
+    </div>
+        <% end %>
+    <% end %>
+    </div>
+
+
+
+   <% @post_album.singers.each.with_index(1) do |singer, i| %>
+    <div class="customer__info">
+      <label class="customer__info--label"><%= i %></label>
+      <p class="customer__info--item"><%= singer.singer_name %></p>
+      <% f.file_field :singers do |singer| %>
+      <%= singer.hidden_field :singer_name %>
+      <% end %>
+    </div>
+        
+    <% end %>
+
+  
+
+
+    <div class="actions">
+    <%= f.submit "戻る", class:"btn btn__login", name: "back" %>
+  </div>
+  
+
+  
+
+  <div class="actions">
+    <%= f.submit "追加", class:"btn btn__login" %>
+  </div>
+<% end %>
+
+
 
 
 
