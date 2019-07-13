@@ -15,10 +15,10 @@ class Admins::AlbumsController < ApplicationController
   end
   
   def new
-    @post_album = Album.new
-    @disc = @post_album.discs.build
+    @album = Album.new
+    @disc = @album.discs.build
     @song = @disc.songs.build
-    @singer = @post_album.singers.build
+    @singer = @album.singers.build
   end
 
   
@@ -34,19 +34,17 @@ class Admins::AlbumsController < ApplicationController
     if @album.save
        redirect_to root_path
     else 
-       render :new
+       render :action => "new"
     end
-  
-end
-
+  end
   
 
   def update
     @album = Album.find(params[:id])
-    if @album.update(params[:id])
-    redirect_to root_path
+    if @album.update(album_params)
+      redirect_to root_path
     else
-      render "edit"   
+      render :action => "edit"  
     end
   end
 
