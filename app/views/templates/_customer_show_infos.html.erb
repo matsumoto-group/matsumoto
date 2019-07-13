@@ -46,13 +46,13 @@
 
 
   <div id="cart" class="customer__carts customer__content">
-    <% @cart.each do |cart| %>
+    <% @cart.each do |c| %>
     <div class="customer__cart">
-      <p class="customer__cart--item">1<%= cart.id %></p>
-      <p class="customer__cart--item">テスト名<%= cart.album.album_name %></p>
-      <p class="customer__cart--item">テストレーベル<%= cart.album.label %></p>
-      <p class="customer__cart--item">テスト価格<%= cart.album.price %></p>
-      
+      <p class="customer__cart--item">1<%= c.album.id %></p>
+      <p class="customer__cart--item">テスト名<%= c.album.album_name %></p>
+      <p class="customer__cart--item">テストレーベル<%= c.album.label %></p>
+      <p class="customer__cart--item">テスト価格<%= c.album.price %></p>
+      <p class="customer__cart--item">テスト数量<%= c.album.stock_quantity %></p>
     </div>
     <% end %>
 

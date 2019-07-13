@@ -1,31 +1,24 @@
-
 <section class="page">
-<div class="page__search">
- <p>商品検索</p>
- <%= form_tag(root_path, :method => "get") do %>
- <%= text_field_tag :search %>
- <%= submit_tag "検索", :album_name =>nil %>
- <% end %>
- </div>
-  <h2 class="page__title">商品一覧</h2>
-<div class="page__album">
-  <% @albums.each do |album| %>
-  <div class="album__wrapper">
-<%= link_to(album_path(album), data: {"turbolinks"=>false}) do %>
-
-
-    <div class="album__img"><%= attachment_image_tag album, :jacket_image , :fill,250,250  %></div>
-
-    <div class="album__title"><%= album.album_name %></div>
-    <div class="album__singer">
-    <%= album.singers.first.singer_name %>
-    </div>
-    
-  <% end %>
+  <div class="page__search">
+    <p>商品検索</p>
+    <%= form_tag(root_path, :method => "get") do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag "検索", :album_name =>nil %>
+    <% end %>
   </div>
-<% end %>
-</div>
-<div class="page___pagination">
-<%= paginate @albums, class: "paginate" %>
-</div>
+  <h2 class="page__title">商品一覧</h2>
+  <div class="page__album">
+    <% @albums.each do |album| %>
+    <div class="album__wrapper">
+      <%= link_to(album_path(album), data: {"turbolinks"=>false}) do %>
+      <div class="album__img"><%= attachment_image_tag album, :jacket_image , :fill,250,250  %></div>
+      <div class="album__title"><%= album.album_name %></div>
+      <div class="album__singer">
+      <%= album.singers.first.singer_name %>
+      </div>
+    <% end %>
+  </div>
+  <div class="page___pagination">
+    <%= paginate @albums, class: "paginate" %>
+  </div>
 </section>
