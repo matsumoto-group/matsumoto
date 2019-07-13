@@ -17,7 +17,7 @@ class AlbumsController < ApplicationController
     @post_album.singers.build
     @post_album.discs.build
     @post_album.discs.songs.build
-
+    @post_album.cart_albums.build
   end
 
   def create
@@ -27,7 +27,7 @@ class AlbumsController < ApplicationController
   
     
       
-    end
+  end
 
   
    
@@ -50,11 +50,6 @@ class AlbumsController < ApplicationController
 
   private
   def album_params
-    params.require(:album).permit(:album_name, :jacket_image, :price, :stock_quantity, :sales_status, :genre, :label, 
-                                  singers_attributes: [:id, :singer_name, :_destroy],
-                                  discs_attributes: [:id, :_destroy,
-                                                    songs_attributes: [:id, :song_title, :_destroy]
-                                                    ]
-                                  )
+    params.require(:album).permit(:album_name, :jacket_image, :price, :stock_quantity, :sales_status, :genre, :label, singers_attributes: [:id, :singer_name, :_destroy], discs_attributes: [:id, :_destroy, songs_attributes: [:id, :song_title, :_destroy]])
   end
 end

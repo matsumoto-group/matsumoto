@@ -1,13 +1,13 @@
 <div id="cart" class="customer__carts">                                            
   <% carts.each do |cart| %>
   <div class="customer__cart">
-    <div class="customer__cart customer__cart--id"><%= cart.id %></div>
-    <div class="customer__cart customer__cart--img"><%= cart.jacket_image %></div>
-    <div class="customer__cart customer__cart--name"><%= cart.album_name %></div>
-    <div class="customer__cart customer__cart--singer"><%= cart.singer %></div>
-    <div class="customer__cart customer__cart--label"><%= cart.label %></div>
-    <div class="customer__cart customer__cart--price"><%= cart.price %></div>
-    <div class="customer__cart customer__cart--quantity"><%= cart.order_quantity %></div>
+    <div class="customer__cart customer__cart--id"><%= cart.album.id %></div>
+    <div class="customer__cart customer__cart--img"><%= cart.album.jacket_image %></div>
+    <div class="customer__cart customer__cart--name"><%= cart.album.album_name %></div>
+    <div class="customer__cart customer__cart--singer"><%= cart.album.singers.first.singer_name %></div>
+    <div class="customer__cart customer__cart--label"><%= cart.album.label %></div>
+    <div class="customer__cart customer__cart--price"><%= cart.album.price %></div>
+    <div class="customer__cart customer__cart--quantity"><%= cart.album.stock_quantity %></div>
   </div>
   <% end %>
 </div><!-- customer__carts -->
