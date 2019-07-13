@@ -1,5 +1,5 @@
 <div id="cart" class="customer__carts">                                            
-  <% carts.each do |cart| %>
+  <% @cart.each do |cart| %>
   <div class="customer__cart">
     <div class="customer__cart customer__cart--id"><%= cart.album.id %></div>
     <div class="customer__cart customer__cart--img"><%= cart.album.jacket_image %></div>

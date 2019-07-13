@@ -1,3 +1,27 @@
 // Place all the styles related to the admins/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.customer {
+	width: 50%;
+	margin: 30px auto 30px auto;
+	border-bottom: 3px solid silver;
+	padding: 30px;
+	position: relative;
+}
+
+.customer__left {
+	width: 50%;
+	float: left;
+}
+
+
+
+.customer__right {
+	width: 50%;
+	float: left;
+}
+
+

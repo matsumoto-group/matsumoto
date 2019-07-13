@@ -2,12 +2,12 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def after_sign_out_path(resource)
-    new_customer_session_path
+  def after_sign_in_path(resource)
+    root_path
   end
 
-  def set_host
-    Rails.application.routes.default_url_options[:host] = request.host_with_port
+  def after_sign_out_path(resource)
+    new_customer_session_path
   end
 
   protected

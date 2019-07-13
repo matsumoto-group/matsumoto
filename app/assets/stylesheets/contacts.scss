@@ -1,3 +1,14 @@
 // Place all the styles related to the Contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.contact__link {
+	display: inline-block;
+	margin-top: 3rem;
+	background-color :green;
+	padding :0 1rem;
+}
+
+.contact__link:hover {
+	opacity: 0.5;
+}

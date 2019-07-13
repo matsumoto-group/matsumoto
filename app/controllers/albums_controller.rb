@@ -1,14 +1,15 @@
 class AlbumsController < ApplicationController
     
   def index
-    @albums = Album.all
-    
-    
+      @albums = if params[:search]
+      Album.page(params[:page]).reverse_order.search(params[:search])
+      else 
+        Album.page(params[:page]).reverse_order
+      end
   end
+
   def show
-    @album = Album.find(params[:id])
-   
-      
+    @album = Album.find(params[:id])      
   end
   
 
@@ -20,33 +21,32 @@ class AlbumsController < ApplicationController
     @post_album.cart_albums.build
   end
 
+
   def create
     @album = Album.new(album_params)
-    @album.save
-    redirect_to root_path
+    if @album.save
+      redirect_to admins_album_path(@album)
+    else
+      render :new
+    end
   
-    
-      
+end
+  
+  def edit
+    @album = Album.find(params[:id])
+    @disc = @album.discs.build
+    @song = @disc.songs.build
+    @singer = @album.singers.build
   end
 
-  
-   
-    #album = Album.new(album_params)
-   
-    #params[:album][:discs_attributes].each do |key, value|
-     
-      #value[:songs_attributes].each do |key2, value2|
-       #puts "value2"
-     #end
- 
-     #end
-     #params[:album][:singer_attributes].each do |key, value| 
-    #3puts "value"
-     #end
-    #album.save
-
-    #redirect_to root_path
-
+  def update
+    @album = Album.find(params[:id])
+    if @album.update(album_params)
+      redirect_to root_path
+    else 
+      render :edit
+    end
+  end
 
   private
   def album_params

@@ -1,7 +1,7 @@
 <div id="order" class="customer__orders customer__content">
-    <% @album.singers.each do |singer| %>
+    <% @album.singers.each.with_index(1) do |singer, i| %>
     <div class="customer__info">
-      <label class="customer__info--label"><% singer.id %></label>
+      <label class="customer__info--label"><%= i %></label>
       <p class="customer__info--item"><%= singer.singer_name %></p>
     </div>
         

@@ -14,4 +14,22 @@ class Album < ApplicationRecord
   accepts_nested_attributes_for :singers
   accepts_nested_attributes_for :cart_albums
   
+  validates :album_name, presence: true
+  validates :jacket_image, presence: true
+  validates :price, presence: true
+  validates :stock_quantity, presence: true
+  validates :sales_status, presence: true
+  validates :genre, presence: true
+  validates :jacket_image, presence: true
+  validates :label, presence: true
+  
+  def self.search(search)
+    if search
+      where(["album_name LIKE ?", "%#{search}%"])
+    else
+      all
+    end
+  end
+  
+  
 end

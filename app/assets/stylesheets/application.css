@@ -29,13 +29,42 @@
  }
 
  .btn:hover{
-   box-shadow: none;  
+   box-shadow: none;
  }
 
  .btn__login, .btn__signup{
      background-color: green;
      color: white;
  }
+
+ .btn__destroy {
+   background-color: red;
+   color: white;
+   
+ }
+ .btn__admins{
+   position: absolute;
+   right: 10px;
+   bottom: 10px;
+ }
+ .btn__cart{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+ .btn__admin{
+  height:40px;
+  width: 120px;
+  border-radius: 10px 10px 10px 10px;
+  border-style: none;
+  font-size: 15px;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.5);
+  text-align: center;
+  float:left;
+  margin-right: 1rem;
+}
+
+ 
 
  .btn__link{
    color: white;
@@ -46,8 +75,8 @@
  .btn__delete{
    color:white;
    line-height: 2rem;
-   display: inline-block;
    background-color: red;
+   display: block;
  }
 
 /* common */
@@ -69,7 +98,7 @@
 
  a{
    text-decoration: none;
-   color: black;  
+   color: black;
  }
 
  ul, ol, li{
@@ -134,7 +163,7 @@
 
 /* form */
 
-.form__row{
+.form__row {
     height: 40px;
     display: flex;
     margin-bottom: 20px;
@@ -171,3 +200,12 @@
   color: red;  
 }
 
+.page__bottom{
+   text-align: left;
+}  
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
