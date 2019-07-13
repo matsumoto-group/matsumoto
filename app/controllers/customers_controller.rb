@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
 
   def edit
     @customer = Customer.find(params[:id])
-    @cart = Cartalbum.where(customer_id: @customer.id)
+    @cart = CartAlbum.where(customer_id: @customer.id)
 
   end
 

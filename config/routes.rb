@@ -12,11 +12,6 @@ Rails.application.routes.draw do
   root 'albums#index'
 
 
-  namespace :admins do
-    get 'customers/index'
-    get 'customers/edit'
-    get 'customers/show'
-  end
 
 
   # エンドユーザー
@@ -43,6 +38,11 @@ Rails.application.routes.draw do
 
 
 # 管理者
+
+  namespace :admins do
+    resources :customers, only: [:index, :show, :edit, :update]
+    post 'customers/:id/delete' => 'customers#delete'
+  end
 
   namespace :admins do
     namespace :customers do
