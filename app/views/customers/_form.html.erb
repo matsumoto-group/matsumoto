@@ -95,5 +95,11 @@
   <% end %>
   
   <!-- カートアルバム数量変更フォーム -->
-  <%= render 'cart_albums_fields', cart: @new_cart %>
+  <div class="customer__cart nested-fields form__roww">
+  <%= form_for @cart do |f| %>
+    <%= f.text_field :order_quantity, class:"form__field" %>
+    <%= f.submit ' 完了', class:"btn__login btn" %>
+  </div>
+  <% end %>
+</div>
 </section>                                                                               

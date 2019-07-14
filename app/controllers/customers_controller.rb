@@ -6,9 +6,9 @@ class CustomersController < ApplicationController
   end
 
   def edit
+  binding.pry
     @customer = Customer.find(params[:id])
-    @cart = CartAlbum.where(customer_id: @customer.id)
-    @new_cart = current_customer.cart_albums.new()
+    @cart = CartAlbum.where(customer_id: params[:id])
   end
 
   def update

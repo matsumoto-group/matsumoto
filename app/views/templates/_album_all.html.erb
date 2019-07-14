@@ -14,8 +14,10 @@
       <div class="album__img"><%= attachment_image_tag album, :jacket_image , :fill,250,250  %></div>
       <div class="album__title"><%= album.album_name %></div>
       <div class="album__singer">
-      <%= album.singers.first.singer_name %>
+        <%= album.singers.first.singer_name %>
       </div>
+      <% end %>
+    </div>
     <% end %>
   </div>
   <div class="page___pagination">

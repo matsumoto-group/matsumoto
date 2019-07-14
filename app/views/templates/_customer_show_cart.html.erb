@@ -2,7 +2,7 @@
   <% @cart.each do |cart| %>
   <div class="customer__cart">
     <div class="customer__cart customer__cart--id"><%= cart.album.id %></div>
-    <div class="customer__cart customer__cart--img"><%= cart.album.jacket_image %></div>
+    <div class="customer__cart customer__cart--img"><%= attachment_image_tag cart.album, :jacket_image %></div>
     <div class="customer__cart customer__cart--name"><%= cart.album.album_name %></div>
     <div class="customer__cart customer__cart--singer"><%= cart.album.singers.first.singer_name %></div>
     <div class="customer__cart customer__cart--label"><%= cart.album.label %></div>
