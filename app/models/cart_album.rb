@@ -1,6 +1,4 @@
 class CartAlbum < ApplicationRecord
-
-  belongs_to :album
-  belongs_to :customer
-
+	belongs_to :customer
+	belongs_to :album
 end

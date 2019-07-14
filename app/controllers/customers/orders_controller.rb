@@ -5,11 +5,13 @@ class Customers::OrdersController < ApplicationController
 	def new
 		@order = Order.new
 		@customer = current_customer
+		@cart_album = CartAlbum.where(customer_id:@customer.id)
 	end
 
 	def confirm
 		@order = Order.new(order_params)
-
+		@customer = current_customer
+		@cart_album = CartAlbum.where(customer_id:@customer.id)
 		if @order.valid?
 			render :action => 'confirm'
 		else
