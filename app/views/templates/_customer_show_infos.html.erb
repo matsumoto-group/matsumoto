@@ -48,11 +48,16 @@
   <div id="cart" class="customer__carts customer__content">
     <% @cart.each do |c| %>
     <div class="customer__cart">
-      <p class="customer__cart--item">1<%= c.album.id %></p>
-      <p class="customer__cart--item">テスト名<%= c.album.album_name %></p>
-      <p class="customer__cart--item">テストレーベル<%= c.album.label %></p>
-      <p class="customer__cart--item">テスト価格<%= c.album.price %></p>
-      <p class="customer__cart--item">テスト数量<%= c.album.stock_quantity %></p>
+      <div class="customer__cart--left">
+      <p class="customer__cart--item"><%= attachment_image_tag c.album, :jacket_image%></p>
+      </div>
+      <div class="customer__cart--right">
+        <p class="customer__cart--item"><%= c.album.album_name %></p>
+        <p class="customer__cart--item"><%= c.album.singers.first.singer_name %></p>
+        <p class="customer__cart--item"><%= c.album.label %></p>
+        <p class="customer__cart--item"><%= c.album.price %></p>
+        <p class="customer__cart--item"><%= c.order_quantity %></p>
+      </div>
     </div>
     <% end %>
 

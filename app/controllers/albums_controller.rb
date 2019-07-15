@@ -29,8 +29,7 @@ class AlbumsController < ApplicationController
     else
       render :new
     end
-  
-end
+  end
   
   def edit
     @album = Album.find(params[:id])
