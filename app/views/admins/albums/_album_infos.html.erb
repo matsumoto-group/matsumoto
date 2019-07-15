@@ -9,7 +9,12 @@
     </div>
     <div class="customer__info">
       <label class="customer__info--label">在庫数</label>
+      <% if @album.stock_quantity == 0  %>
+      <p class="customer__info--item"> 在庫切れ</p>
+      <% else %>
       <p class="customer__info--item"><%= @album.stock_quantity %></p>
+
+      <% end %>
     </div>
     <div class="customer__info">
       <label class="customer__info--label">販売ステータス</label>

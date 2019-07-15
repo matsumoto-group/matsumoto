@@ -1,9 +1,9 @@
-<%= form_for(post_album) do |f| %>
+<%= form_for(post_album, :url => page) do |f| %>
   <div class="form__row">
     <p class="form__label">アルバム</p>
     <%= f.text_field :album_name, autofocus: true,  class:"form__field" %>
-    <% if alert %>
-      <p class="form__alert alert alert-error"><%= alert %></p>
+    <% if @album.errors.any? %>
+      <p class="form__alert alert alert-error"><%= alert %>入力してください</p>
     <% else %>
       <p class="form__condition">*注意書きが入ります。</p>
     <% end %>
@@ -12,7 +12,7 @@
   <div class="form__row">
     <p class="form__label">ジャケット写真</p>
     <%= f.attachment_field :jacket_image %>
-    <% if alert %>
+    <% if @album.errors.any? %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
       <p class="form__condition">*注意書きが入ります。</p>
@@ -22,7 +22,7 @@
   <div class="form__row">
     <p class="form__label">レーベル</p>
     <%= f.text_field :label, class:"form__field" %>
-    <% if alert %>
+    <% if @album.errors.any? %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
       <p class="form__condition">*注意書きが入ります。</p>
@@ -32,7 +32,7 @@
   <div class="form__row">
     <p class="form__label">価格</p>
     <%= f.number_field :price, class:"form__field" %>
-    <% if alert %>
+    <% if @album.errors.any? %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
       <p class="form__condition">*注意書きが入ります。</p>
@@ -42,7 +42,7 @@
   <div class="form__row">
     <p class="form__label">在庫数</p>
     <%= f.number_field :stock_quantity, class:"form__field" %>
-    <% if alert %>
+    <% if @album.errors.any? %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
       <p class="form__condition">*注意書きが入ります。</p>
@@ -52,7 +52,7 @@
   <div class="form__row">
     <p class="form__label">ジャンル</p>
     <%= f.text_field :genre, class:"form__field" %>
-    <% if alert %>
+    <% if @album.errors.any? %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
       <p class="form__condition">*注意書きが入ります。</p>
@@ -62,7 +62,7 @@
   <div class="form__row">
     <p class="form__label">公開/非公開</p>
     <%= f.text_field :sales_status, class:"form__field" %>
-    <% if alert %>
+    <% if @album.errors.any? %>
       <p class="form__alert alert alert-error"><%= alert %></p>
     <% else %>
       <p class="form__condition">*注意書きが入ります。</p>
