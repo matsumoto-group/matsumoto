@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # エンドユーザー
   resources :albums, only: [:show] do 
-    resources :cart_albums, only: [:update, :destroy]
+    resource :cart_albums, only: [:create, :update, :destroy]
   end
 
   resources :customers, only: [:show, :edit, :update]

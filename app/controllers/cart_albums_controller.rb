@@ -1,9 +1,14 @@
 class CartAlbumsController < ApplicationController
+
+    def create
+      album = Album.find(params[:album_id])
+      cart_album = current_customer.cart_albums.new(album_id: album.id)
+      cart_album.save
+      redirect_to customer_path(current_customer.id)
+    end
+
     def update
-        binding.pry
-        # album = Album.find(params[:album_id])
-        cart_album = CartAlbum.find(params[:id])
-        cart_album.album_id = album.id
+        cart_album = CartAlbum.where(album_id: params[:album_id])
         cart_album.update(cart_album_params)
         redirect_to customer_path(current_customer.id)
     end

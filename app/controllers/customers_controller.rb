@@ -6,7 +6,6 @@ class CustomersController < ApplicationController
   end
 
   def edit
-  binding.pry
     @customer = Customer.find(params[:id])
     @cart = CartAlbum.where(customer_id: params[:id])
   end
