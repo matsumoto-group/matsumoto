@@ -12,6 +12,11 @@
     <%= render "admins/albums/album_singers" %>
 
 </section>
+<% if @album.stock_quantity ==0 %>
+
+<% else%>
+
     <div class="btn__cart">
     <p class="btn btn__login"><%= link_to "カートに入れる" , album_cart_albums_path(@album), class:"btn btn__link", method: :post %></p>
     </div>
+<% end %>
