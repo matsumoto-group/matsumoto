@@ -1,17 +1,26 @@
+<section>
+
+	<h2 class="page__title">お問い合わせ一覧</h2>
+
+	<div class="page__content">
+
+	<% @contacts.each do |contact| %>
+	<div class="contact">
+		<div class="contact__left">
+			<p><%= contact.name %></p>
+			<p><%= contact.name_kana %></p>
+			<p><%= contact.email %></p>
+			<p><%= contact.title %></p>
+		</div>
 
 
+		<div class="contact__right">
+			<p><%= contact.created_at.strftime('%Y/%m/%d') %></p>
+			<p class="btn btn__login"><%= link_to "詳細を見る", admins_contact_path(contact.id) %></p>
+		</div>
 
+	</div>
+	<% end %>
 
-
-<% @contacts.each do |contact| %>
-	<table>
-		<tr>
-			<th><%= contact.name %></th>
-			<th><%= contact.name_kana %></th>
-			<th><%= contact.email %></th>
-			<th><%= contact.title %></th>
-			<th><%= contact.created_at %></th>
-			<th><%= link_to "詳細を見る", admins_contact_path(:id) %></th>
-		</tr>
-	</table>
-<% end %>
+	</div>
+</section>

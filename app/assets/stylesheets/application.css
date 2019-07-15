@@ -19,8 +19,8 @@
 
 /* btn */
  .btn{
-   height:40px;
-   width: 120px;
+   height: 2rem;
+   width: 6rem;
    border-radius: 10px 10px 10px 10px;
    border-style: none;
    font-size: 15px;
@@ -29,7 +29,7 @@
  }
 
  .btn:hover{
-   box-shadow: none;  
+   box-shadow: none;
  }
 
  .btn__login, .btn__signup{
@@ -69,8 +69,14 @@
  .btn__link{
    color: white;
    line-height: 2rem;
+   display: inline-block;
+ }
+
+ .btn__delete{
+   color:white;
+   line-height: 2rem;
+   background-color: red;
    display: block;
-     
  }
 
 /* common */
@@ -92,7 +98,7 @@
 
  a{
    text-decoration: none;
-   color: black;  
+   color: black;
  }
 
  ul, ol, li{
@@ -137,7 +143,7 @@
     color: #000000;
   }
 
-/* form */
+/* page */
 
 .page{
   width: 80%;
@@ -150,6 +156,12 @@
 }
 
 .page__content{}
+
+.page__bottom{
+   text-align: left;
+}  
+
+/* form */
 
 .form__row {
     height: 40px;
@@ -184,19 +196,16 @@
     line-height: 15px;
 }
 
+.form__alert{
+  color: red;  
+}
+
 .page__bottom{
    text-align: left;
 }  
 
-.page__search{
-   text-align: left;
-}
-
-.page__pagination{
-  margin: 1rem;
-}
-
-.page__album{
-  width: auto;
-  height: 65rem;
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
 }

@@ -12,52 +12,24 @@ Rails.application.routes.draw do
   root 'albums#index'
 
 
- get '/customers/:id' => 'customers#show', as: 'customer'
-  namespace :admins do
-    namespace :customers do
-      get 'orders/destroy'
-    end
-  end
-
-  namespace :admins do
-    get 'customers/index'
-    get 'customers/edit'
-    get 'customers/show'
-  end
-
-  # 管理者
-  namespace :admins do
-    resources :albums do
-      collection do
-        get :confirm
-      end
-    end
-    namespace :albums do
-      resources :discs, only: [:create, :update, :destroy]
-      namespace :discs do
-        resources :songs, only: [:create, :update, :destroy]
-        resources :singers, only: [:create, :update, :destroy]
-      end
-    end
-    namespace :customers do
-      resources :orders, only: [:destroy]
-    end
-    resources :customers, only: [:index, :edit, :show, :update]
-    resources :contacts, only: [:index, :show, :update, :destroy]
-
-  end
 
 
   # エンドユーザー
-  resources :albums, only: [:show] do
-    resources :cart_albums, only: [:create, :destroy] 
+  resources :albums, only: [:show] do 
+    resource :cart_albums, only: [:create, :update, :destroy]
   end
-  resources :orders, only: [:destroy, :create] do
-    collection do
-      get :confirm
-      get :complete
+
+  resources :customers, only: [:show, :edit, :update]
+
+  namespace :customers do
+    resources :orders, only: [:new, :create] do
+        collection do
+        post :confirm
+        get :complete
+        end
     end
   end
+
   resources :albums, only: [:create, :update, :destroy]
   resources :contacts, only: [:new, :create] do
     collection do
@@ -65,6 +37,43 @@ Rails.application.routes.draw do
       get :complete
     end
   end
-  resources :customers, only: [:edit, :update]
+
+
+# 管理者
+
+  namespace :admins do
+    resources :customers, only: [:index, :show, :edit, :update]
+    post 'customers/:id/delete' => 'customers#delete'
+  end
+
+  namespace :admins do
+    namespace :customers do
+      get 'orders/destroy'
+    end
+  end
+
+  namespace :admins do
+    resources :albums do
+      collection do
+        get :confirm
+      end
+    end
+  end
+
+    namespace :albums do
+      resources :discs, only: [:create, :update, :destroy]
+      namespace :discs do
+        resources :songs, only: [:create, :update, :destroy]
+        resources :singers, only: [:create, :update, :destroy]
+      end
+    end
+
+    namespace :customers do
+      resources :orders, only: [:destroy]
+    end
+
+    namespace :admins do
+      resources :contacts, only: [:index, :show, :destroy]
+    end
 
 end

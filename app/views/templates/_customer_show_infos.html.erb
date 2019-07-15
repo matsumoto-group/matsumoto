@@ -40,18 +40,27 @@
       <label class="customer__info--label">住所</label>
       <p class="customer__info--item"><%= @customer.adress %></p>
     </div>
+
   </div><!-- cutomer__infos --> 
 
+
+
   <div id="cart" class="customer__carts customer__content">
-    <% @cart.each do |cart| %>
+    <% @cart.each do |c| %>
     <div class="customer__cart">
-      <p class="customer__cart--item">1<%= cart.id %></p>
-      <p class="customer__cart--item">テスト名<%= cart.album.album_name %></p>
-      <p class="customer__cart--item">テストレーベル<%= cart.album.label %></p>
-      <p class="customer__cart--item">テスト価格<%= cart.album.price %></p>
-      
+      <div class="customer__cart--left">
+      <p class="customer__cart--item"><%= attachment_image_tag c.album, :jacket_image%></p>
+      </div>
+      <div class="customer__cart--right">
+        <p class="customer__cart--item"><%= c.album.album_name %></p>
+        <p class="customer__cart--item"><%= c.album.singers.first.singer_name %></p>
+        <p class="customer__cart--item"><%= c.album.label %></p>
+        <p class="customer__cart--item"><%= c.album.price %></p>
+        <p class="customer__cart--item"><%= c.order_quantity %></p>
+      </div>
     </div>
     <% end %>
+
   </div><!-- customer__carts -->
 
   <div id="order" class="customer__orders customer__content">

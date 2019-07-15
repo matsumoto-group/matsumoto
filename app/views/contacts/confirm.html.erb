@@ -1,18 +1,18 @@
 <section class="page">
 <h2 class="page__title">お問い合わせ</h2>
-
+<div class="page__content">
 <%= form_for(@contact) do |f| %>
 
   <div class="form__row">
     <%= f.label :送信者名（漢字）, class:"form__label" %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class:"form__field" %>
       <p class="form__alert alert alert-error"><%= alert %></p>
       <p class="form__condition">*注意書きが入ります。</p>
   </div>
 
   <div class="form__row">
     <%= f.label :送信者名（カナ）, class:"form__label" %><br>
-    <%= f.text_field :name_kana %>
+    <%= f.text_field :name_kana, class:"form__field" %>
       <p class="form__alert alert alert-error"><%= alert %></p>
       <p class="form__condition">*注意書きが入ります。</p>
   </div>
@@ -20,7 +20,7 @@
 
 <div class="form__row">
     <%= f.label :メールアドレス, class:"form__label" %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class:"form__field" %>
       <p class="form__alert alert alert-error"><%= alert %></p>
       <p class="form__condition">*注意書きが入ります。</p>
   </div>
@@ -28,25 +28,26 @@
 
 <div class="form__row">
     <%= f.label :件名, class:"form__label" %><br>
-    <%= f.text_field :title%>
+    <%= f.text_field :title, class:"form__field" %>
       <p class="form__alert alert alert-error"><%= alert %></p>
       <p class="form__condition">*注意書きが入ります。</p>
   </div>
 
   <div class="form__row">
     <%= f.label :本文, class:"form__label" %><br>
-    <%= f.text_field :content%>
+    <%= f.text_area :content, class:"form__field" %>
       <p class="form__alert alert alert-error"><%= alert %></p>
       <p class="form__condition">*注意書きが入ります。</p>
   </div>
 
 
 
-
+  <p>記入内容に誤りがない場合は、送信ボタンを押してください。</p>
   <div class="actions">
     <%= f.submit "送信", class:"btn btn__signup" %>
   </div>
 
 <% end %>
 
+</div>
 </section>

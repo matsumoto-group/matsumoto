@@ -1,22 +1,19 @@
 class CustomersController < ApplicationController
+
   def show
     @customer = Customer.find(params[:id])
     @cart = CartAlbum.where(customer_id:@customer.id)
-
   end
 
   def edit
     @customer = Customer.find(params[:id])
-    @cart = Cartalbum.where(customer_id: @customer.id)
-
+    @cart = CartAlbum.where(customer_id: params[:id])
   end
 
   def update
     customer = Customer.find(params[:id])
-    p customer
     if customer.update(customer_params)
       redirect_to customer_path(customer.id)
-
     else
       flash[:error] = "Something went wrong"
       render 'edit'
@@ -33,7 +30,13 @@ class CustomersController < ApplicationController
   end
 
   private
+
   def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :phone, :postalcode, :adress)
+    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :phone, :postalcode, :adress, cart_albums_attributes: [:id, :order_quantity])
   end
+
+  def cart_album_params
+    params.require(:cart_album).permit(:customer_id, :album_id, :order_quantity)
+  end
+
 end
