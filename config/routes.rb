@@ -28,7 +28,9 @@ Rails.application.routes.draw do
         get :complete
         end
     end
+    resource :order_albums, only: [:create]
   end
+  
 
   resources :albums, only: [:create, :update, :destroy]
   resources :contacts, only: [:new, :create] do
