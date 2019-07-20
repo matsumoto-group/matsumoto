@@ -21,6 +21,7 @@ class Customers::OrdersController < ApplicationController
 
 	def create
 		@order = Order.new(order_params)
+		@order.customer_id = current_customer.id
 		@order.save
 		redirect_to complete_customers_orders_path
 	end
@@ -37,7 +38,7 @@ class Customers::OrdersController < ApplicationController
 	end
 
 	def order_params
-    	params.require(:order).permit(:first_name, :last_name, :postalcode, :order_adress, :payway)
+    	params.require(:order).permit(:first_name, :last_name, :postalcode, :order_adress, :payway, :customer_id)
   	end
 
 
