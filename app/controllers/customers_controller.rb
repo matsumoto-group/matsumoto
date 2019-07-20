@@ -20,6 +20,13 @@ class CustomersController < ApplicationController
     end
   end
 
+  def delete
+    customer = Customer.find(params[:id])
+    customer.update(deleted: true)
+    redirect_to customer_path(customer.id)
+  end
+
+
   def destroy
     customer = Customer.find(params[:id])
     if customer.destroy(customer_params)

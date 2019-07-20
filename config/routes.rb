@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :customers, only: [:show, :edit, :update]
+  post 'customers/:id/delete' => 'customers#delete', as: 'customer_delete'
 
   namespace :customers do
     resources :orders, only: [:new, :create] do
