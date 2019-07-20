@@ -77,14 +77,13 @@
         <div class="customer__order--status">
          <!-- %= @order.status % -->
         </div>
-        <% binding.pry %>
-        <% if @order_albums.presence %>
-          <% @order_albums.each do |oa| %>
+        <% if order.order_albums.presence %>
+          <% order.order_albums.each do |oa| %>
           <div class="customer__order--items">
             <!-- @orders.each do |order| -->
-            <div class="customer__order-img"><%= attachment_image_tag oa, :jacket_image %></div>
+            <% binding.pry %>
             <div class="customer__order--name"><% oa.album_name %></div>
-            <div class="customer__order--quantity"><%= oa.stock_quantity %></div>
+            <div class="customer__order--quantity"><%= oa.stock_quanitity %></div>
             <div class="customer__order--subprice"><%= oa.price %></div>
           </div>
           <% end %>

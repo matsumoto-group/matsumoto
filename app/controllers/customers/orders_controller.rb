@@ -17,26 +17,26 @@ class Customers::OrdersController < ApplicationController
 
 	def create
 		order = current_customer.orders.new(order_params)
+    order_album = order.order_albums.build
     order.purchase_date = order.created_at
     order.first_name_kana = current_customer.first_name_kana
     order.last_name_kana = current_customer.last_name_kana
-		cart_albums = CartAlbum.where(customer_id: current_customer.id)
+		cart_album = CartAlbum.where(customer_id: current_customer.id)
     total = 0
-    cart_albums.each do |c|
+    cart_album.each do |c|
       total += c.album.price
     end
 		order.subtotal = total
-    orders = {
-      OrderAlbum.album_name = cart_album.album_name
-      OrderAlbum.jacket_image = cart_album.jacket_image
-      OrderAlbum.price = cart_album.price
-      OrderAlbum.stock_quantity = cart_album.stock_quantity
-      OrderAlbum.genre = cart_album.genre
-      OrderAlbum.label = cart_album.label
-    }
-    order_album = order.order_albums.new(orders)
+    cart_album.each do |c|
+      order_album.album_name = c.album.album_name,
+      order_album.jacket_image = c.album.jacket_image,
+      order_album.price = c.album.price,
+      order_album.stock_quanitity = c.order_quantity,
+      order_album.genre = c.album.genre,
+      order_album.label = c.album.label
+    end
 		order.save
-		redirect_to customer_path
+		redirect_to customer_path(current_customer.id)
 	end
 
 

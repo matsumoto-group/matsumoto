@@ -2,9 +2,8 @@ class CustomersController < ApplicationController
 
   def show
     @customer = current_customer
-    @cart = CartAlbum.where(customer_id:@customer.id)
-    @order = Order.where(customer_id: @customer.id)
-    # @order_albums = OrderAlbum.where(order_id: @order.id)
+    @cart = CartAlbum.where(customer_id:current_customer.id)
+    @order = Order.where(customer_id: current_customer.id)
   end
 
   def edit
