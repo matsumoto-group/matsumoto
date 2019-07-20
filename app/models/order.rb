@@ -1,13 +1,16 @@
 class Order < ApplicationRecord
   has_many :order_albums, dependent: :destroy
-  has_many :customers, through: :order_albums
+  belongs_to :customer
 
   validates :last_name, presence: true
   validates :first_name, presence: true
-  validates :postalcode, presence: true
+# validates :postalcode, presence: true
   validates :order_adress, presence: true
-
   validates_acceptance_of :confirming
+
+  # cocoon
+  accepts_nested_attributes_for :order_albums, allow_destroy: true
+
   after_validation :check_confirming
 
    def check_confirming
