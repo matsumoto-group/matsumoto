@@ -33,7 +33,14 @@ Rails.application.routes.draw do
     end
     resource :order_albums, only: [:create]
   end
-  
+
+  resources :contacts, only: [:new, :create] do 
+    collection do 
+      post :confirm
+      get :complete
+    end
+  end
+
 
 # 管理者
 
@@ -45,6 +52,7 @@ Rails.application.routes.draw do
   namespace :admins do
     namespace :customers do
       get 'orders/destroy'
+      get 'orders/update' => 'orders#update', as: 'orderup'
     end
   end
 

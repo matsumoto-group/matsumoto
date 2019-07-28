@@ -1,0 +1,7 @@
+<% @orders.each do |order| %>
+<% binding.pry %>
+  <%= form_for order, orders_customers_orderup_path do |f| %>
+    <%= f.select :order_status, [['商品準備中', '商品準備中'], ['受付', '受付'], ['配達済み', '配達済み']], :selected=>order.order_status  %>
+    <%= f.submit '配達ステータス変更完了' %>
+  <% end %>
+<% end %>
