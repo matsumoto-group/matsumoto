@@ -81,7 +81,6 @@
           <% order.order_albums.each do |oa| %>
           <div class="customer__order--items">
             <!-- @orders.each do |order| -->
-            <% binding.pry %>
             <div class="customer__order--name"><% oa.album_name %></div>
             <div class="customer__order--quantity"><%= oa.stock_quanitity %></div>
             <div class="customer__order--subprice"><%= oa.price %></div>
