@@ -35,15 +35,6 @@ Rails.application.routes.draw do
   end
   
 
-  resources :albums, only: [:create, :update, :destroy]
-  resources :contacts, only: [:new, :create] do
-    collection do
-      post :confirm
-      get :complete
-    end
-  end
-
-
 # 管理者
 
   namespace :admins do
