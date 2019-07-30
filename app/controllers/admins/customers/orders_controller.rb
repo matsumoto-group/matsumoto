@@ -6,7 +6,7 @@ class Admins::Customers::OrdersController < ApplicationController
       @order = Order.find(id.to_i)
       @order.update_attributes(params['order'][id])
     end
-    redirect_to root_path
+    redirect_to admins_customer_path(@order.customer)
 		
 	end
 
