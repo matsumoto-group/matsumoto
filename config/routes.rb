@@ -45,7 +45,7 @@ Rails.application.routes.draw do
 # 管理者
 
   namespace :admins do
-    resources :customers, only: [:index, :show, :edit]
+    resources :customers, only: [:index, :show, :edit, :update]
     post 'customers/:id/delete' => 'customers#delete'
   end
 
