@@ -16,8 +16,10 @@ Rails.application.routes.draw do
 
   # エンドユーザー
   resources :albums, only: [:show] do 
-    resource :cart_albums, only: [:create, :update, :destroy]
+    resource :cart_albums, only: [:create, :destroy]
   end
+
+  match 'cart_albums/edit' => 'cart_albums#update_all', :as => 'update_all', :via => :put
 
   resources :customers, only: [:show, :edit, :update]
   post 'customers/:id/delete' => 'customers#delete', as: 'customer_delete'

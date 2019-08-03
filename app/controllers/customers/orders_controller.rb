@@ -37,6 +37,10 @@ class Customers::OrdersController < ApplicationController
       	order_album.label = c.album.label
     end
 		order.save
+    cart_album = cart_album.where(customer_id: current_customer.id)
+    cart_album.each do |cart|
+      cart.destroy
+    end
 		redirect_to customer_path(current_customer.id)
 	end
 

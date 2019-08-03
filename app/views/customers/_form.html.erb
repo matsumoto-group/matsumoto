@@ -96,11 +96,13 @@
   
   <!-- カートアルバム数量変更フォーム -->
   <div class="customer__cart nested-fields form__roww">
-  <% @cart.each do |cart| %>
-    <%= form_for cart, url: album_cart_albums_path(cart.id) do |f| %>
-      <%= f.text_field :order_quantity, class:"form__field" %>
-      <%= f.submit ' 完了', class:"btn__login btn" %>
+  <%= form_for :cart_albums, url: update_all_path, :html => { :method => :put } do |f| %>
+    <% @cart.each do |cart| %>
+      <%= fields_for 'cart[]', cart do |cart_fields| %>
+        <%= cart_fields.text_field :order_quantity, class:"form__field" %>
+      <% end %>
     <% end %>
+    <%= f.submit ' 完了', class:"btn__login btn" %>
   <% end %>
   </div>
 </div>
