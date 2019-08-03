@@ -35,6 +35,7 @@ class Customers::OrdersController < ApplicationController
       order_album.genre = c.album.genre,
       order_album.label = c.album.label
     end
+    binding.pry
 		order.save
     cart_album = cart_album.where(customer_id: current_customer.id)
     cart_album.each do |cart|
