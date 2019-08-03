@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   post 'customers/:id/delete' => 'customers#delete', as: 'customer_delete'
 
   namespace :customers do
-    resources :orders, only: [:new, :create] do
+    resources :orders, only: [:new, :create, :update] do
         collection do
         post :confirm
         get :complete
@@ -33,11 +33,9 @@ Rails.application.routes.draw do
     end
     resource :order_albums, only: [:create]
   end
-  
 
-  resources :albums, only: [:create, :update, :destroy]
-  resources :contacts, only: [:new, :create] do
-    collection do
+  resources :contacts, only: [:new, :create] do 
+    collection do 
       post :confirm
       get :complete
     end
@@ -54,6 +52,7 @@ Rails.application.routes.draw do
   namespace :admins do
     namespace :customers do
       get 'orders/destroy'
+      get 'orders/update' => 'orders#update', as: 'orderup'
     end
   end
 
@@ -80,5 +79,7 @@ Rails.application.routes.draw do
     namespace :admins do
       resources :contacts, only: [:index, :show, :destroy]
     end
+
+    match 'orders/edit' => 'admins/customers/orders#update', :as => 'orders_update_all', :via => :put
 
 end
