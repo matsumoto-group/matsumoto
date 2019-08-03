@@ -53,19 +53,40 @@
 
   </div><!-- cutomer__infos --> 
 
-  <div id="cart" class="customer__carts customer__content">
-    <% @cart.each do |cart| %>
-    <div class="customer__cart">
-      <p class="customer__cart--item">1<%= cart.id %></p>
-      <p class="customer__cart--item">テスト名<%= cart.album_name %></p>
-      <p class="customer__cart--item">テストレーベル<%= cart.label %></p>
-      <p class="customer__cart--item">テスト価格<%= cart.price %></p>
-      <p class="customer__cart--item">テスト数量<%= cart.order_quantity %></p>
-    </div>
-    <% end %>
+
+
   </div><!-- customer__carts -->
 
+  <div id="cart" class="customer__orders customer__content">
+  <% @order.each do |order| %>
+    <div class="customer__order">
+      <div class="customer__order--wrapper">
+        <div class="customer__order--infos">
+          <p class="customer__order--date"><%= order.last_name %></p>
+          <p class="customer__order--date"><%= order.first_name %></p>
+          <p class="customer__order--date"><%= order.created_at %></p>
+          <p class="customer__order--adress"><%= order.order_adress %></p>
+          <p class="customer__order--price"><%= order.subtotal %></p>
+          <div class="customer__order--subprice"><%= order.order_status %></div>
+        </div>
+        <div class="customer__order--status">
+         <!-- %= @order.status % -->
+        </div>
+        <% if order.order_albums.presence %>
+          <% order.order_albums.each do |oa| %>
+          <div class="customer__order--items">
+            <!-- @orders.each do |order| -->
+            <div class="customer__order--name"><% oa.album_name %></div>
+            <div class="customer__order--quantity"><%= oa.stock_quanitity %></div>
+            <div class="customer__order--subprice"><%= oa.price %></div>
+          </div>
+          <% end %>
+        <% end %>
+      <p class="customer__order--item"></p>
+      </div><!-- customer__order-wraooer -->
+    </div><!-- customer__order -->
+  <% end %>
+  </div><!-- cutomer__orders -->
 
-  </div><!-- customer__orders -->
 </div><!-- cutomer__wrapper --> 
 </div><!-- page -->

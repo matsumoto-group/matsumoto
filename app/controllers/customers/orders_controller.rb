@@ -17,27 +17,27 @@ class Customers::OrdersController < ApplicationController
 
 	def create
 		order = current_customer.orders.new(order_params)
-    order_album = order.order_albums.build
-    order.purchase_date = order.created_at
-    order.first_name_kana = current_customer.first_name_kana
-    order.last_name_kana = current_customer.last_name_kana
+    	order_album = order.order_albums.build
+    	order.purchase_date = order.created_at
+    	order.first_name_kana = current_customer.first_name_kana
+    	order.last_name_kana = current_customer.last_name_kana
 		cart_album = CartAlbum.where(customer_id: current_customer.id)
-    total = 0
-    cart_album.each do |c|
-      total += c.album.price
-    end
+    	total = 0
+    	cart_album.each do |c|
+      		total += c.album.price
+    	end
 		order.subtotal = total
-    cart_album.each do |c|
-      order_album.album_name = c.album.album_name,
-      order_album.jacket_image = c.album.jacket_image,
-      order_album.price = c.album.price,
-      order_album.stock_quanitity = c.order_quantity,
-      order_album.genre = c.album.genre,
-      order_album.label = c.album.label
+
+    	cart_album.each do |c|
+     	order_album.album_name = c.album.album_name,
+      	order_album.jacket_image = c.album.jacket_image,
+      	order_album.price = c.album.price,
+      	order_album.stock_quanitity = c.order_quantity,
+      	order_album.genre = c.album.genre,
+      	order_album.label = c.album.label
     end
 		order.save
 		redirect_to customer_path(current_customer.id)
->>>>>>> a9f463b0d6e6c834a7c87c3430d863aae93e2bdb
 	end
 
 
@@ -52,11 +52,7 @@ class Customers::OrdersController < ApplicationController
 	end
 
 	def order_params
-<<<<<<< HEAD
-    	params.require(:order).permit(:first_name, :last_name, :postalcode, :order_adress, :payway, :customer_id)
-=======
     	params.require(:order).permit( :first_name, :last_name, :postalcode, :order_adress, :payway, order_albums_attributes: [:id, :order_id, :album_name, :jacket_image, :price, :stock_quantity, :genre, :label])
->>>>>>> a9f463b0d6e6c834a7c87c3430d863aae93e2bdb
   	end
 
 

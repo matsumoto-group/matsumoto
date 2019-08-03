@@ -7,6 +7,8 @@ class Admins::CustomersController < ApplicationController
   def show
   	@customer = Customer.find(params[:id])
   	@cart = CartAlbum.where(customer_id:@customer.id)
+    @order = Order.where(customer_id: @customer.id)
+
   end
 
   def edit
