@@ -13,6 +13,7 @@ class Admins::CustomersController < ApplicationController
 
   def edit
     @customer = Customer.find(params[:id])
+    @orders = Order.where(customer_id: params[:id])
   end
 
   def update
