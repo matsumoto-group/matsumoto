@@ -30,11 +30,11 @@ class Customers::OrdersController < ApplicationController
 		order.subtotal = total
     cart_album.each do |c|
       order_album = order.order_albums.build
-      order_album.album_name = c.album.album_name,
-      order_album.jacket_image = c.album.jacket_image,
-      order_album.price = c.album.price,
-      order_album.stock_quanitity = c.order_quantity,
-      order_album.genre = c.album.genre,
+      order_album.album_name = c.album.album_name
+      order_album.jacket_image_id = c.album.jacket_image_id
+      order_album.price = c.album.price
+      order_album.stock_quanitity = c.order_quantity
+      order_album.genre = c.album.genre
       order_album.label = c.album.label
       order_album.save
 
