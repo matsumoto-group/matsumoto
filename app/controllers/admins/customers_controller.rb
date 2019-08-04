@@ -9,7 +9,6 @@ class Admins::CustomersController < ApplicationController
   	@customer = Customer.find(params[:id])
   	@cart = CartAlbum.where(customer_id:@customer.id)
     @order = Order.where(customer_id: @customer.id)
-
   end
 
   def edit
@@ -19,8 +18,11 @@ class Admins::CustomersController < ApplicationController
 
   def update
      customer = Customer.find(params[:id])
-     customer.update(customer_params)
-     redirect_to admins_customer_path(params[:id])
+     if  customer.update(customer_params)
+       redirect_to admins_customer_path(params[:id])
+     else
+       render 'edit'
+     end
   end
 
   def delete

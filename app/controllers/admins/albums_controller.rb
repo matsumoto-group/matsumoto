@@ -24,9 +24,6 @@ class Admins::AlbumsController < ApplicationController
   
   def edit
     @album = Album.find(params[:id])
-    @disc = @album.discs.build
-    @song = @disc.songs.build
-    @singer = @album.singers.build
   end
 
   def create

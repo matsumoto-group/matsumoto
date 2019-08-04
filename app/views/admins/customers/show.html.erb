@@ -84,8 +84,9 @@
         <div class="customer__order--status">
         <%= form_for :orders, :url => orders_update_all_path, :html => { :method => :put} do |f| %>
           <%= fields_for 'order[]', order do |order_fields| %>
-            <%= order_fields.select :order_status, options_for_select([["商品準備中", "商品準備中"], ["受付", "受付"], ["配達しました", ">配達しました"]]) , class:"form__field"  %>
+            <%= order_fields.select :order_status, options_for_select([["商品準備中", "商品準備中"], ["受付", "受付"], ["配達しました", "配達しました"]]) , class:"form__field"  %>
           <% end %>
+          <%= order.order_status %>
           <%= f.submit ' 完了', class:"btn__login btn" %>
          <% end %>
         </div>

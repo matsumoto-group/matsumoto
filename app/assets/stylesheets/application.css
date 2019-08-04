@@ -35,6 +35,7 @@
  .btn__login, .btn__signup{
      background-color: green;
      color: white;
+     margin-right: 2rem;
  }
 
  .btn__destroy {
@@ -69,6 +70,10 @@
    display: block;
  }
 
+ .btn__box{
+   display: flex;  
+ }
+
 /* common */
 
  * {
@@ -84,6 +89,7 @@
  body{
    width: 90%;
    margin: 0 auto;  
+   padding-bottom: 5rem;
  }
 
  a{
@@ -141,7 +147,7 @@
 /* page */
 
 .page{
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   text-align: center;
 }
