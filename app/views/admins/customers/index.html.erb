@@ -35,7 +35,7 @@
 			<p class="left"><%= "郵便番号: #{deleted_customer.postalcode}" %></p>
 			<p class="left"><%= "住所: #{deleted_customer.adress}" %></p>
 			<p><%= "登録日: #{deleted_customer.created_at.strftime('%Y/%m/%d')}" %></p>
-			<p class="btn btn__login white"><%= link_to "詳細を見る", admins_customer_path(deleted_customer.id) %></p>
+			<p class="btn btn__login white"><%= link_to "詳細を見る", admins_customer_path(deleted_customer.id), data: {"turbolinks"=>false} %></p>
 		</div>
 	</div>
 	<% end %>

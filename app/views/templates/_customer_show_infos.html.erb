@@ -44,7 +44,7 @@
   </div><!-- cutomer__infos --> 
 
 
-
+  <%= form_for :cart_albums, url: update_all_path, :html => { :method => :put } do |f| %>
   <div id="cart" class="customer__carts customer__content">
     <% @cart.each do |c| %>
     <div class="customer__cart">
@@ -56,10 +56,15 @@
         <p class="customer__cart--item"><%= c.album.singers.first.singer_name %></p>
         <p class="customer__cart--item"><%= c.album.label %></p>
         <p class="customer__cart--item"><%= c.album.price %></p>
+        <%= fields_for 'cart[]', c do |cart_fields| %>
+          <%= cart_fields.number_field :order_quantity, class:"form__field" %>
+        <% end %>
         <p class="customer__cart--item"><%= c.order_quantity %></p>
       </div>
     </div>
     <% end %>
+    <%= f.submit '数量変更完了', class:"btn__login btn" %>
+  <% end %>
 
   </div><!-- customer__carts -->
 
