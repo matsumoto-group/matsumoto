@@ -11,7 +11,7 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])      
   end
-  
+
 
   def new
     @post_album = Album.new
@@ -29,21 +29,18 @@ class AlbumsController < ApplicationController
     else
       render :new
     end
-  
+
   end
-  
+
   def edit
     @album = Album.find(params[:id])
-    @disc = @album.discs.build
-    @song = @disc.songs.build
-    @singer = @album.singers.build
   end
 
   def update
     @album = Album.find(params[:id])
     if @album.update(album_params)
       redirect_to root_path
-    else 
+    else
       render :edit
     end
   end
