@@ -40,7 +40,6 @@
  .btn__destroy {
    background-color: red;
    color: white;
-   
  }
  .btn__admins{
    position: absolute;
@@ -119,7 +118,7 @@
       font-size: 1.5rem;
       line-height: 3rem;
   }
-  
+
   .header__navs {
       margin-left: 80px;
   }
@@ -130,8 +129,13 @@
   }
 
   .header__item {
-      font-size: 0.9rem;;
+      font-size: 0.9rem;
       margin-left: 2.5rem;
+  }
+
+  .header__item__admin {
+      font-size: 0.9rem;
+      background-color: yellow;
   }
 
   .header__item :hover {

@@ -27,6 +27,7 @@ class Customers::OrdersController < ApplicationController
     		taxprice = c.album.price * 1.08
       		total += taxprice
     	end
+      order.subtotal = total
 
 
     	cart_album.each do |c|
