@@ -24,9 +24,10 @@ class Customers::OrdersController < ApplicationController
 		cart_album = CartAlbum.where(customer_id: current_customer.id)
     	total = 0
     	cart_album.each do |c|
-      		total += c.album.price
+    		taxprice = c.album.price * 1.08
+      		total += taxprice
     	end
-		order.subtotal = total
+		order.subtotal = total + 500
 
     	cart_album.each do |c|
      	order_album.album_name = c.album.album_name,
