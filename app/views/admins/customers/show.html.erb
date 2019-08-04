@@ -82,8 +82,12 @@
           <p class="customer__order--price"><label>送料込みの総計</label><%= order.subtotal + 500 %></p>
         </div>
         <div class="customer__order--status">
-         <%= order.order_status %>
-
+        <%= form_for :orders, :url => orders_update_all_path, :html => { :method => :put} do |f| %>
+          <%= fields_for 'order[]', order do |order_fields| %>
+            <%= order_fields.select :order_status, options_for_select([["商品準備中", "商品準備中"], ["受付", "受付"], ["配達しました", ">配達しました"]]) , class:"form__field"  %>
+          <% end %>
+          <%= f.submit ' 完了', class:"btn__login btn" %>
+         <% end %>
         </div>
         <% if order.order_albums.presence %>
           <% order.order_albums.each do |oa| %>
