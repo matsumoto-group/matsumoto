@@ -5,14 +5,13 @@
     <div class="customer__tab is_selected">商品情報</div>
     <div class="customer__tab">含む曲</div>
     <div class="customer__tab">含むアーティスト</div>
-    
   </div>
     <%= render "admins/albums/album_infos" %>
     <%= render "admins/albums/album_songs" %>
     <%= render "admins/albums/album_singers" %>
 
 </section>
-<% if @album.stock_quantity == 0  %>
+<% if @album.stock_quantity <= 0  %>
 
 <% elsif customer_signed_in? == false %>
 
