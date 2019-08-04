@@ -68,9 +68,11 @@
     <div class="customer__order">
       <div class="customer__order--wrapper">
         <div class="customer__order--infos">
-          <p class="customer__order--date"><label>姓</label><%= order.first_name %></p>
-          <p class="customer__order--date"><label>名</label><%= order.last_name %></p>
-          <p class="customer__order--date"><label>注文日時</label><%= order.created_at %></p>
+          <div class="customer__order--top">
+            <p class="customer__order--date"><%= order.first_name %></p>
+            <p class="customer__order--date"><%= order.last_name %></p>
+            <p class="customer__order--date"><%= order.created_at %></p>
+          </div>
           <p class="customer__order--adress"><label>発送先</label><%= order.order_adress %></p>
           <p class="customer__order--price"><label>小計</label><%= order.subtotal %></p>
         </div>
