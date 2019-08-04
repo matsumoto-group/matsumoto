@@ -66,36 +66,6 @@
 
   </div><!-- customer__carts -->
 
-  <div id="order" class="customer__orders customer__content">
-  <% @customer.orders.each do |order| %>
-    <div class="customer__order">
-      <div class="customer__order--wrapper">
-        <div class="customer__order--infos">
-          <p class="customer__order--date"><%= order.first_name %></p>
-          <p class="customer__order--date"><%= order.last_name %></p>
-          <p class="customer__order--date"><%= order.created_at %></p>
-          <p class="customer__order--adress"><%= order.order_adress %></p>
-          <p class="customer__order--price"><%= order.subtotal %></p>
-          <p class="customer__order--price"><%= order.order_status %></p>
-        </div>
-        <div class="customer__order--status">
-         <!-- %= @order.status % -->
-        </div>
-        <% if order.order_albums.presence %>
-          <% order.order_albums.each do |oa| %>
-          <div class="customer__order--items">
-            <!-- @orders.each do |order| -->
-            <div class="customer__order--name"><% oa.album_name %></div>
-            <div class="customer__order--quantity"><%= oa.stock_quanitity %></div>
-            <div class="customer__order--subprice"><%= oa.price %></div>
-          </div>
-          <% end %>
-        <% end %>
-      <p class="customer__order--item"></p>
-      </div><!-- customer__order-wraooer -->
-    </div><!-- customer__order -->
-  <% end %>  
-  </div><!-- cutomer__orders --> 
 </div><!-- page -->
 
 

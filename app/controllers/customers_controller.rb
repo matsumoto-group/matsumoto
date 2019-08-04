@@ -24,7 +24,10 @@ class CustomersController < ApplicationController
   def delete
     customer = Customer.find(params[:id])
     customer.update(deleted: true)
-    redirect_to customer_path(customer.id)
+    render 'complete'
+  end
+
+  def complete
   end
 
 

@@ -17,23 +17,25 @@ class Customers::OrdersController < ApplicationController
 
 	def create
 		order = current_customer.orders.new(order_params)
-    order_album = order.order_albums.build
-    order.purchase_date = order.created_at
-    order.first_name_kana = current_customer.first_name_kana
-    order.last_name_kana = current_customer.last_name_kana
+    	order_album = order.order_albums.build
+    	order.purchase_date = order.created_at
+    	order.first_name_kana = current_customer.first_name_kana
+    	order.last_name_kana = current_customer.last_name_kana
 		cart_album = CartAlbum.where(customer_id: current_customer.id)
-    total = 0
-    cart_album.each do |c|
-      total += c.album.price
-    end
-		order.subtotal = total
-    cart_album.each do |c|
-      order_album.album_name = c.album.album_name,
-      order_album.jacket_image = c.album.jacket_image,
-      order_album.price = c.album.price,
-      order_album.stock_quanitity = c.order_quantity,
-      order_album.genre = c.album.genre,
-      order_album.label = c.album.label
+    	total = 0
+    	cart_album.each do |c|
+    		taxprice = c.album.price * 1.08
+      		total += taxprice
+    	end
+		order.subtotal = total + 500
+
+    	cart_album.each do |c|
+     	order_album.album_name = c.album.album_name,
+      	order_album.jacket_image = c.album.jacket_image,
+      	order_album.price = c.album.price,
+      	order_album.stock_quanitity = c.order_quantity,
+      	order_album.genre = c.album.genre,
+      	order_album.label = c.album.label
     end
 		if order.save
       cart_album = cart_album.where(customer_id: current_customer.id)
