@@ -53,15 +53,17 @@
       <p class="customer__cart--item"><%= attachment_image_tag c.album, :jacket_image%></p>
       </div>
       <div class="customer__cart--right">
-        <p class="customer__cart--item"><%= c.album.album_name %></p>
-        <p class="customer__cart--item"><%= c.album.singers.first.singer_name %></p>
-        <p class="customer__cart--item"><%= c.album.label %></p>
-        <p class="customer__cart--item"><%= c.album.price %></p>
+        <p class="customer__cart--item carting"><label>アルバム名：</label><%= c.album.album_name %></p>
+        <p class="customer__cart--item carting"><label>アーティスト名：<label><%= c.album.singers.first.singer_name %></p>
+        <p class="customer__cart--item carting"><label>レーベル名：</label><%= c.album.label %></p>
+        <p class="customer__cart--item carting"><label>価格：</label><%= c.album.price %></p>
         <%= fields_for 'cart[]', c do |cart_fields| %>
           <%= cart_fields.number_field :order_quantity, class:"form__field" %>
-        <p class="customer__cart--item"><%= c.order_quantity %></p>
+
+        <p class="customer__cart--item carting"><label>カート数量：</label><%= c.order_quantity %></p>
         <%= link_to "削除", album_cart_albums_path(c.album), method: :delete, data: { confirm: '本当に消しますか？' } %>
         <% end %>
+
       </div>
       
     </div>
@@ -80,30 +82,43 @@
       <div class="customer__order--wrapper">
         <div class="customer__order--infos">
           <div class="customer__order--top">
-            <p class="customer__order--date"><%= order.first_name %></p>
-            <p class="customer__order--date"><%= order.last_name %></p>
-            <p class="customer__order--date"><%= order.created_at.strftime("%Y-%m-%d") %></p>
+            <div class="order__person">
+              <label>購入者名：</label>
+              <p class="customer__order--date"><%= order.first_name %></p>
+              <p class="customer__order--date"><%= order.last_name %></p>
+            </div>
+            <div class="order__date">
+              <label>購入日：</label>
+              <p class="customer__order--date"><%= order.created_at.strftime("%Y-%m-%d") %></p>
+            </div>
           </div>
-          <p class="customer__order--adress"><label>発送先</label><%= order.order_adress %></p>
-          <p class="customer__order--price"><label>小計</label><%= order.subtotal %></p>
-          <p class="customer__order--price"><label>送料込みの総計</label><%= order.subtotal + 500 %></p>
-        </div>
-        <div class="customer__order--status">
-         <%= order.order_status %>
-        </div>
-        <% if order.order_albums.presence %>
-          <% order.order_albums.each do |oa| %>
-          <div class="customer__order--items">
-            <!-- @orders.each do |order| -->
-            <div class="customer__order--name"><label>アルバム名</label><%= oa.album_name %></div>
-            <div class="customer__order--quantity"><label>注文数</label><%= oa.stock_quanitity %></div>
-            <div class="customer__order--subprice"><label>値段</label><%= oa.price %></div>
+          <div class="order__bottom">
+            <p class="customer__order--adress"><label>発送先：</label><%= order.order_adress %></p>
+            <p class="customer__order--price"><label>小計：</label><%= order.subtotal %></p>
+            <p class="customer__order--price"><label>送料込みの総計:</label><%= order.subtotal + 500 %></p>
+          <div class="customer__order--status">
+            <label>配達状況：</label>
+            <%= order.order_status %>
           </div>
+          <% if order.order_albums.presence %>
+            <% order.order_albums.each do |oa| %>
+            <div class="customer__order--items">
+              <!-- @orders.each do |order| -->
+              <div class="customer__order--image">
+                <%= attachment_image_tag oa, :jacket_image %>
+              </div>
+              <div class="order__inner">
+                <div class="customer__order--name"><label>アルバム名：</label><%= oa.album_name %></div>
+                <div class="customer__order--quantity"><label>注文数：</label><%= oa.stock_quanitity %></div>
+                <div class="customer__order--subprice"><label>値段：</label><%= oa.price %></div>
+              </div>
+            </div>
+            <% end %>
           <% end %>
-        <% end %>
       <p class="customer__order--item"></p>
       </div><!-- customer__order-wraooer -->
     </div><!-- customer__order -->
   <% end %>  
+  </div><!-- order_bottom -->
   </div><!-- cutomer__orders --> 
 </div><!-- page -->

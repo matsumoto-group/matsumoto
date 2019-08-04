@@ -2,19 +2,29 @@
 
 <h2 class="page__title">購入商品</h2>
 <div class="page__content">
-
-<div class="form__row">
-  <% @cart_album.each do |c| %>
-    <div class="customer__cart">
-      <p class="customer__cart--item">商品名<%= c.album.album_name %></p>
-      <p class="customer__cart--item">レーベル<%= c.album.label %></p>
-      <p class="customer__cart--item">価格<%= c.album.price %></p>
-      <p class="customer__cart--item">数量<%= c.order_quantity %></p>
+  <div class="order__items">
+      <% @cart_album.each do |c| %>
+        <div class="order__inner">
+          <div class="order__inner--left">
+            <%= attachment_image_tag c.album, :jacket_image %>
+          </div>
+          <div class="order__inner--right">
+            <div class="order__in--left">
+              <p class="customer__cart--item">商品名：<%= c.album.album_name %></p>
+              <p class="customer__cart--item">レーベル：<%= c.album.label %></p>
+            </div>
+            <div class="order__in--right">
+              <p class="customer__cart--item">価格：<%= c.album.price %></p>
+              <p class="customer__cart--item">数量：<%= c.order_quantity %></p>
+            <div> 
+          </div>
+        </div>  
+        </div>
+        </div>
+        </div>
+      <% end %>
     </div>
-   <% end %>
-</div>
-</div>
-
+<div>
 </section>
 
 

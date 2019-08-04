@@ -26,18 +26,94 @@
   line-height: 2rem;  
 }
 
+.customer__order--items{
+  display: flex;
+  margin: 2rem auto;
+}
+
 .customer__order--wrapper{
   text-align: left;
-  background-color: #f0f0f0;
   margin-bottom: 5rem;
+  border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem #f0f0f0;
 }
 
 .customer__order--wrapper label{
-  margin-right: 3rem;
+  margin-right: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+
+.carting label{
+  margin-right: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5rem;  
 }
 
 .customer__order--top{
   display: flex;  
+  margin: 1rem auto;
+  background-color: gray;
+  color: white;
+  padding-left: 3rem;
 }
+
+.order__person {
+  display: flex;
+  margin-right: 10rem;
+}
+
+.order__date{
+  display: flex;
+}
+
+.order__bottom {
+  padding-left: 3rem;  
+}
+
+.customer__order--image{
+  margin-right: 3rem;
+}
+
+.customer__order--image img{
+  max-width: 10rem;
+}
+
+.order__inner{
+}
+
+// orders
+
+.order__inner {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+  margin: 0.5rem auto;
+}
+
+.order__inner--right{
+  display: flex;
+  text-align: left;
+}
+
+.order__in--left{
+  margin-right: 3rem;  
+}
+
+.order__inner--left{
+  margin-right: 3rem;  
+}
+
+.order__inner--left img{
+  max-width: 5rem;  
+}
+
+
+
+
+
+
+
+
+
 
 
