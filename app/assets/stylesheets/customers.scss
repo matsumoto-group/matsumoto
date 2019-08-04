@@ -79,15 +79,12 @@
   max-width: 10rem;
 }
 
-.order__inner{
-}
-
 // orders
 
 .order__inner {
   display: flex;
   border-bottom: 1px solid #f0f0f0;
-  margin: 0.5rem auto;
+  margin: 0.5rem 0;
 }
 
 .order__inner--right{
