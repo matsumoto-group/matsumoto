@@ -66,6 +66,39 @@
 
   </div><!-- customer__carts -->
 
+   <div id="order" class="customer__orders customer__content">
+  <% @order.each do |order| %>
+    <div class="customer__order">
+      <div class="customer__order--wrapper">
+        <div class="customer__order--infos">
+          <div class="customer__order--top">
+            <p class="customer__order--date"><%= order.first_name %></p>
+            <p class="customer__order--date"><%= order.last_name %></p>
+            <p class="customer__order--date"><%= order.created_at %></p>
+          </div>
+          <p class="customer__order--adress"><label>発送先</label><%= order.order_adress %></p>
+          <p class="customer__order--price"><label>小計</label><%= order.subtotal %></p>
+          <p class="customer__order--price"><label>送料込みの総計</label><%= order.subtotal + 500 %></p>
+        </div>
+        <div class="customer__order--status">
+         <%= order.order_status %>
+        </div>
+        <% if order.order_albums.presence %>
+          <% order.order_albums.each do |oa| %>
+          <div class="customer__order--items">
+            <!-- @orders.each do |order| -->
+            <div class="customer__order--name"><label>アルバム名</label><%= oa.album_name %></div>
+            <div class="customer__order--quantity"><label>注文数</label><%= oa.stock_quanitity %></div>
+            <div class="customer__order--subprice"><label>値段</label><%= oa.price %></div>
+          </div>
+          <% end %>
+        <% end %>
+      <p class="customer__order--item"></p>
+      </div><!-- customer__order-wraooer -->
+    </div><!-- customer__order -->
+  <% end %>  
+  </div><!-- cutomer__orders --> 
+
 </div><!-- page -->
 
 
