@@ -5,7 +5,7 @@
     <!-- 姓（漢字） -->
     <div class="form__row">
       <label class="form__label">姓</label>
-      <%= c.text_field :first_name, autofocus: true, class:"form__field" %>
+      <%= c.text_field :last_name, autofocus: true, class:"form__field" %>
       <% if alert %>
         <p class="form__alert alert alert-error"><%= alert %></p>
       <% else %>
@@ -16,7 +16,7 @@
     <!-- 名（漢字） -->
     <div class="form__row">
       <label class="form__label">名</label>
-      <%= c.text_field :last_name, autofocus: true, class:"form__field" %>
+      <%= c.text_field :first_name, autofocus: true, class:"form__field" %>
       <% if alert %>
         <p class="form__alert alert alert-error"><%= alert %></p>
       <% else %>
@@ -27,7 +27,7 @@
     <!-- セイ -->
     <div class="form__row">
       <label class="form__label">セイ</label>
-      <%= c.text_field :first_name_kana, autofocus: true, class:"form__field" %>
+      <%= c.text_field :last_name_kana, autofocus: true, class:"form__field" %>
       <% if alert %>
         <p class="form__alert alert alert-error"><%= alert %></p>
       <% else %>
@@ -38,7 +38,7 @@
     <!-- メイ -->
     <div class="form__row">
       <label class="form__label">メイ</label>
-      <%= c.text_field :last_name_kana, autofocus: true, class:"form__field" %>
+      <%= c.text_field :first_name_kana, autofocus: true, class:"form__field" %>
       <% if alert %>
         <p class="form__alert alert alert-error"><%= alert %></p>
       <% else %>
