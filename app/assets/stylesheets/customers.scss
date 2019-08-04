@@ -1,9 +1,13 @@
 .customer__cart{
   display:flex;  
-  background: lightgray;
   margin-bottom: 3rem;
-  border: 1px solid gray;
+  border: 1px solid #f0f0f0;
   border-radius: 1rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem #f0f0f0;
+}
+
+.customer__wrapper{
+  margin-bottom: 5rem;  
 }
 
 .customer__cart--left{

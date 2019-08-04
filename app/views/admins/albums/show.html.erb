@@ -13,7 +13,7 @@
     <%= render "album_singers" %>
 
 </section>
-  <div class="btn__admins">
+  <div class="btn__box">
     <p class="btn__admin btn__login"><%= link_to "編集" , edit_admins_album_path(@album), class:"btn__link" %></p>
     <p class="btn__admin btn__destroy"><%= link_to "削除",  admins_album_path , class: "btn__link", method: :delete, data: { confirm: '本当に消しますか？' } %></p>
   </div>
