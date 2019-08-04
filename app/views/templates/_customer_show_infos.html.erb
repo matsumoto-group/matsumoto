@@ -77,7 +77,7 @@
           <p class="customer__order--price"><label>小計</label><%= order.subtotal %></p>
         </div>
         <div class="customer__order--status">
-         <!-- %= @order.status % -->
+         <%= order.order_status %>
         </div>
         <% if order.order_albums.presence %>
           <% order.order_albums.each do |oa| %>

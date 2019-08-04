@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   post 'customers/:id/delete' => 'customers#delete', as: 'customer_delete'
 
   namespace :customers do
-    resources :orders, only: [:new, :create] do
+    resources :orders, only: [:new, :create, :update] do
         collection do
         post :confirm
         get :complete
@@ -79,5 +79,7 @@ Rails.application.routes.draw do
     namespace :admins do
       resources :contacts, only: [:index, :show, :destroy]
     end
+
+    match 'orders/edit' => 'admins/customers/orders#update', :as => 'orders_update_all', :via => :put
 
 end

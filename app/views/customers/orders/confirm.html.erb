@@ -53,6 +53,7 @@
     <%= f.text_field :order_adress,class:"form__field" %>
       <p class="form__alert alert alert-error"><%= alert %></p>
       <p class="form__condition">*注意書きが入ります。</p>
+      <%= f.hidden_field :order_status, value: "商品準備中" %>
 </div>
 
 </div>

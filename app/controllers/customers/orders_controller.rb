@@ -47,7 +47,7 @@ class Customers::OrdersController < ApplicationController
     binding.pry
 		redirect_to customer_path(current_customer.id)
 	end
-
+	
 
 
 	private
@@ -60,7 +60,7 @@ class Customers::OrdersController < ApplicationController
 	end
 
 	def order_params
-    	params.require(:order).permit( :first_name, :last_name, :postalcode, :order_adress, :payway, order_albums_attributes: [:id, :order_id, :album_name, :jacket_image, :price, :stock_quantity, :genre, :label])
+    	params.require(:order).permit( :first_name, :last_name, :postalcode, :order_adress, :payway, :order_status, order_albums_attributes: [:id, :order_id, :album_name, :jacket_image, :price, :stock_quantity, :genre, :label])
   	end
 
 
