@@ -42,16 +42,7 @@
    color: white;
    
  }
- .btn__admins{
-   position: absolute;
-   right: 10px;
-   bottom: 10px;
- }
- .btn__cart{
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-}
+ 
  .btn__admin{
   height:40px;
   width: 120px;

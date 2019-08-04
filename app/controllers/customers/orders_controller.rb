@@ -16,7 +16,6 @@ class Customers::OrdersController < ApplicationController
 	end
 
 	def create
-    binding.pry
 		order = current_customer.orders.new(order_params)
     order.purchase_date = order.created_at
     order.first_name_kana = current_customer.first_name_kana
@@ -24,7 +23,8 @@ class Customers::OrdersController < ApplicationController
 		cart_album = CartAlbum.where(customer_id: current_customer.id)
     total = 0
     cart_album.each do |c|
-      total += c.album.price
+    	taxprice = c.album.price * 1.08
+      total += taxprice
     end
 		order.subtotal = total
     cart_album.each do |c|
@@ -35,9 +35,6 @@ class Customers::OrdersController < ApplicationController
       order_album.stock_quanitity = c.order_quantity,
       order_album.genre = c.album.genre,
       order_album.label = c.album.label
-
-      p order_album.album_name
-      p c.album.album_name
       order_album.save
     end
 		if order.save

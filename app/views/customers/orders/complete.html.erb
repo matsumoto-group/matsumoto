@@ -6,8 +6,8 @@
 	<p>商品購入申し込みが完了しました。<p>
 	<p>購入内容を確認次第、<br>記入住所宛に商品を郵送いたしましす。</p>
 
-	<%=link_to "ホームへ", "/", class:"contact__link" %>
-	<div>
+	<%=link_to "マイページへ", customer_path(current_customer.id), class:"contact__link" %>
+	</div>
 
 </section>
 
