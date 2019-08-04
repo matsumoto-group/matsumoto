@@ -1,5 +1,5 @@
 class Admins::Customers::OrdersController < ApplicationController
-  
+  before_action :authenticate_admin!
   def update
     params.permit!
     params['order'].keys.each do |id|

@@ -36,6 +36,7 @@ class Customers::OrdersController < ApplicationController
       	order_album.stock_quanitity = c.order_quantity,
       	order_album.genre = c.album.genre,
       	order_album.label = c.album.label
+>>>>>>> 70ca3d86b4f431260805f374ac5572b4c289a98b
     end
 		if order.save
       cart_album = cart_album.where(customer_id: current_customer.id)
