@@ -58,8 +58,9 @@
         <p class="customer__cart--item"><%= c.album.price %></p>
         <%= fields_for 'cart[]', c do |cart_fields| %>
           <%= cart_fields.number_field :order_quantity, class:"form__field" %>
-        <% end %>
         <p class="customer__cart--item"><%= c.order_quantity %></p>
+        <%= link_to "削除", album_cart_albums_path(c.album), method: :delete, data: { confirm: '本当に消しますか？' } %>
+        <% end %>
       </div>
     </div>
     <% end %>
