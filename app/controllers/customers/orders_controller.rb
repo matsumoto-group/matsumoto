@@ -21,6 +21,7 @@ class Customers::OrdersController < ApplicationController
     order.first_name_kana = current_customer.first_name_kana
     order.last_name_kana = current_customer.last_name_kana
 		cart_album = CartAlbum.where(customer_id: current_customer.id)
+
     total = 0
     cart_album.each do |c|
     	taxprice = c.album.price * 1.08
@@ -36,6 +37,7 @@ class Customers::OrdersController < ApplicationController
       order_album.genre = c.album.genre,
       order_album.label = c.album.label
       order_album.save
+
     end
 		if order.save
       cart_album = cart_album.where(customer_id: current_customer.id)
