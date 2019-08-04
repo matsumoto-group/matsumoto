@@ -1,3 +1,2 @@
 class DiscsController < ApplicationController
-    
 end

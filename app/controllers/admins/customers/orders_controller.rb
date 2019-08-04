@@ -14,6 +14,7 @@ class Admins::Customers::OrdersController < ApplicationController
   def destroy
   end
 
+
   def order_params
     params.require(:order).permit( :first_name, :last_name, :postalcode, :order_adress, :payway, :order_status, order_albums_attributes: [:id, :order_id, :album_name, :jacket_image, :price, :stock_quantity, :genre, :label])
   end

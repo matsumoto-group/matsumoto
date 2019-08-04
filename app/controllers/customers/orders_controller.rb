@@ -17,31 +17,37 @@ class Customers::OrdersController < ApplicationController
 
 	def create
 		order = current_customer.orders.new(order_params)
-    order_album = order.order_albums.build
-    order.purchase_date = order.created_at
-    order.first_name_kana = current_customer.first_name_kana
-    order.last_name_kana = current_customer.last_name_kana
+    	order_album = order.order_albums.build
+    	order.purchase_date = order.created_at
+    	order.first_name_kana = current_customer.first_name_kana
+    	order.last_name_kana = current_customer.last_name_kana
 		cart_album = CartAlbum.where(customer_id: current_customer.id)
-    total = 0
-    cart_album.each do |c|
-      total += c.album.price
+    	total = 0
+    	cart_album.each do |c|
+    		taxprice = c.album.price * 1.08
+      		total += taxprice
+    	end
+
+
+    	cart_album.each do |c|
+     	order_album.album_name = c.album.album_name,
+      	order_album.jacket_image = c.album.jacket_image,
+      	order_album.price = c.album.price,
+      	order_album.stock_quanitity = c.order_quantity,
+      	order_album.genre = c.album.genre,
+      	order_album.label = c.album.label
+>>>>>>> 70ca3d86b4f431260805f374ac5572b4c289a98b
     end
-		order.subtotal = total
-	cart_album.each do |c|
-		c.order_albums.each do |oa|
-      oa.album_name = c.album.album_name,
-      oa.jacket_image = c.album.jacket_image,
-      oa.price = c.album.price,
-      oa.stock_quanitity = c.order_quantity,
-      oa.genre = c.album.genre,
-	  oa.label = c.album.label
-	end
+		if order.save
+      cart_album = cart_album.where(customer_id: current_customer.id)
+      cart_album.each do |cart|
+        cart.album.stock_quantity = cart.album.stock_quantity - cart.order_quantity
+        cart.album.save
+        cart.destroy
+      end
     end
-		order.save
-    cart_album = cart_album.where(customer_id: current_customer.id)
-    cart_album.each do |cart|
-      cart.destroy
-    end
+
+    binding.pry
 		redirect_to customer_path(current_customer.id)
 	end
 	
