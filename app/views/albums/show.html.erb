@@ -12,7 +12,9 @@
     <%= render "admins/albums/album_singers" %>
 
 </section>
-<% if @album.stock_quantity ==0 %>
+<% if @album.stock_quantity == 0  %>
+
+<% elsif customer_signed_in? == false %>
 
 <% else%>
 

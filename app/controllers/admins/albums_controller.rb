@@ -1,5 +1,5 @@
 class Admins::AlbumsController < ApplicationController
-  
+  before_action :authenticate_admin!
   def index
     @albums = if params[:search]
       Album.page(params[:page]).reverse_order.search(params[:search])
