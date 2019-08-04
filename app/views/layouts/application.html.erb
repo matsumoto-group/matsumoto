@@ -28,7 +28,7 @@
               <%= link_to "ホーム", root_path %>  
           </li>
      	  <li class="header__item">
-              <%= link_to "マイページ" , customer_path(current_customer.id)  %>  
+              <%= link_to "マイページ" , customer_path(current_customer.id) , data: {"turbolinks"=>false}  %>  
           </li>
 	  <li class="header__item">
               <%= link_to "お問い合わせ", new_contact_path  %>  
