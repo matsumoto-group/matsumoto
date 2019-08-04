@@ -24,6 +24,7 @@ class CartAlbumsController < ApplicationController
         cart_album = current_customer.cart_albums.find_by(album_id: album.id)
         cart_album.destroy
         redirect_to customer_path(current_customer.id)
+        
     end
        
     private
