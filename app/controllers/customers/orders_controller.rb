@@ -49,7 +49,7 @@ class Customers::OrdersController < ApplicationController
       end
     end
 
-		redirect_to customer_path(current_customer.id)
+		redirect_to complete_customers_orders_path
 	end
 	
 
