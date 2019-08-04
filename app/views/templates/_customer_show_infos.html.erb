@@ -46,6 +46,7 @@
 
   <%= form_for :cart_albums, url: update_all_path, :html => { :method => :put } do |f| %>
   <div id="cart" class="customer__carts customer__content">
+    <% if @cart.present? %>
     <% @cart.each do |c| %>
     <div class="customer__cart">
       <div class="customer__cart--left">
@@ -65,7 +66,9 @@
       
     </div>
     <% end %>
+
     <%= f.submit '数量変更完了', class:"btn__login btn" %>
+  <% end %>
   <% end %>
 
   </div><!-- customer__carts -->

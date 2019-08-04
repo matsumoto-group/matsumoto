@@ -1,5 +1,7 @@
 <%= render 'templates/customer_show_infos', customer:@customer %>
 <div class="btn__box">
   <p class="btn btn__login"><%= link_to '編集する', edit_customer_path(current_customer.id), class:"btn btn__link" %></p>
+  <% if @cart.present? %>
   <p class="btn btn__login"><%= link_to '購入ページに行く', new_customers_order_path, class:"btn btn__link", data: {"turbolinks"=>false} %></p>
+  <% end %>
 </div>
