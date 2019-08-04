@@ -75,6 +75,7 @@
           </div>
           <p class="customer__order--adress"><label>発送先</label><%= order.order_adress %></p>
           <p class="customer__order--price"><label>小計</label><%= order.subtotal %></p>
+          <p class="customer__order--price"><label>送料込みの総計</label><%= order.subtotal + 500 %></p>
         </div>
         <div class="customer__order--status">
          <%= order.order_status %>
