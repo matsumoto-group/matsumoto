@@ -1,12 +1,12 @@
 class Admins::Customers::OrdersController < ApplicationController
-  
+  before_action :authenticate_admin!
   def update
     params.permit!
     params['order'].keys.each do |id|
       @order = Order.find(id.to_i)
       @order.update_attributes(params['order'][id])
     end
-    redirect_to root_path
+    redirect_to admins_customer_path(@order.customer)
 		
 	end
 

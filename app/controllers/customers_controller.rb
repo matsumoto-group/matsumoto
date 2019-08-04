@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-
+  before_action :authenticate_customer!, only: [:show,:edit]
   def show
     @customer = current_customer
     @cart = CartAlbum.where(customer_id:current_customer.id)

@@ -27,13 +27,15 @@ class Customers::OrdersController < ApplicationController
       total += c.album.price
     end
 		order.subtotal = total
-    cart_album.each do |c|
-      order_album.album_name = c.album.album_name,
-      order_album.jacket_image = c.album.jacket_image,
-      order_album.price = c.album.price,
-      order_album.stock_quanitity = c.order_quantity,
-      order_album.genre = c.album.genre,
-      order_album.label = c.album.label
+	cart_album.each do |c|
+		c.order_albums.each do |oa|
+      oa.album_name = c.album.album_name,
+      oa.jacket_image = c.album.jacket_image,
+      oa.price = c.album.price,
+      oa.stock_quanitity = c.order_quantity,
+      oa.genre = c.album.genre,
+	  oa.label = c.album.label
+	end
     end
 		order.save
     cart_album = cart_album.where(customer_id: current_customer.id)
