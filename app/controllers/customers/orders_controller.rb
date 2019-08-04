@@ -35,12 +35,16 @@ class Customers::OrdersController < ApplicationController
       order_album.genre = c.album.genre,
       order_album.label = c.album.label
     end
-    binding.pry
-		order.save
-    cart_album = cart_album.where(customer_id: current_customer.id)
-    cart_album.each do |cart|
-      cart.destroy
+		if order.save
+      cart_album = cart_album.where(customer_id: current_customer.id)
+      cart_album.each do |cart|
+        cart.album.stock_quantity = cart.album.stock_quantity - cart.order_quantity
+        cart.album.save
+        cart.destroy
+      end
     end
+
+    binding.pry
 		redirect_to customer_path(current_customer.id)
 	end
 
