@@ -1,21 +1,28 @@
-# README
-# CDのECサイト　Matsumoto
+# CDのECサイト(3人で制作)
 
-##ユーザー側画面と管理者側画面
+##機能一覧　ユーザー側
+* 商品一覧表示機能
+* 商品詳細表示機能
+* 会員登録、ログイン機能
+* 商品をカートに追加する機能
+* 商品購入機能
+* 購入履歴閲覧機能
+* 管理者へのお問い合わせ機能
+* 退会機能
 
-###ユーザー側ではユーザーが会員登録をして、商品をカートに追加、その後購入することができる。
 
-###管理者側では、新規商品の追加、ユーザー情報の管理、またユーザーからのお問い合わせ一覧を確認することができる。
+##機能一覧　管理者側
+* 管理者登録機能
+* 管理者ログイン機能
+* 新規商品の追加機能
+* 現役ユーザーと退会済みユーザーの一覧表示機能
+* ユーザー詳細の表示機能
+* お問い合わせの一覧表示機能
+* お問い合わせの詳細表示機能
 
 
-Things you may want to cover:
-
+###使用している技術一覧
+* Ruby on Rails
 * Ruby version　2.5.5
-* System dependencies
-* Configuration
-* Database creation
-* Database initialization
-* How to run the test suite
-* Services (job queues, cache servers, search engines, etc.)　EC
-* Deployment instructions
-* ...
+* JavaScript
+* JQuery
